@@ -12,12 +12,13 @@ class DonorViewContainer extends React.Component {
         <Row>
           <Col />
 
-          <Col sm="6" style={{ backgroundColor: "pink" }}>
+          <Col sm="6">
             <SearchContainer />
           </Col>
 
           <Col />
         </Row>
+
         <Row>
           <Col style={{ backgroundColor: "red" }}>
             <DonorFeedContainer />
