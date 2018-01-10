@@ -12,15 +12,15 @@ import {
 const Navigation = () => {
   return (
     <Navbar light>
-      <NavbarBrand href="/">DonorPool</NavbarBrand>
+      <NavbarBrand>DonorPool</NavbarBrand>
       <Nav className="ml-auto" navbar>
         <UncontrolledDropdown nav>
           <DropdownToggle nav caret>
             My Account
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>Option 1</DropdownItem>
-            <DropdownItem>Option 2</DropdownItem>
+            <DropdownItem>Adjust Donations</DropdownItem>
+            <DropdownItem>User Preferences</DropdownItem>
             <DropdownItem divider />
             <DropdownItem>Sign Out</DropdownItem>
           </DropdownMenu>
