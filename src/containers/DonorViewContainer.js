@@ -20,7 +20,7 @@ class DonorViewContainer extends React.Component {
         </Row>
 
         <Row>
-          <Col style={{ backgroundColor: "red" }}>
+          <Col>
             <DonorFeedContainer />
           </Col>
 
