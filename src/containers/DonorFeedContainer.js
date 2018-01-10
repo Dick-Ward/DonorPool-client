@@ -5,8 +5,8 @@ import { Card, CardBody, CardTitle } from "reactstrap";
 class DonorFeedContainer extends React.Component {
   render() {
     return (
-      <div>
-        My Charities
+      <div className="sideContainer">
+        <div className="categoryTitle">My Charities</div>
         <DonorFeed />
       </div>
     );
