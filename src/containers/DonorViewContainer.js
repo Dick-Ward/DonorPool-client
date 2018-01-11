@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import DonorFeedContainer from "./DonorFeedContainer";
 import CharityFeedContainer from "./CharityFeedContainer";
 import RightSidebarContainer from "./RightSidebarContainer";

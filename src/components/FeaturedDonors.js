@@ -1,14 +1,6 @@
 import React from "react";
 
-import {
-  Card,
-  CardBody,
-  CardText,
-  CardTitle,
-  CardImg,
-  CardSubtitle,
-  Container
-} from "reactstrap";
+import { Card, CardBody, CardText, CardTitle, CardImg } from "reactstrap";
 
 const featuredDonor = (
   <Card style={{ margin: "5px" }}>

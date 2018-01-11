@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DonorViewContainer from "./containers/DonorViewContainer";
 import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
 
 import "./App.css";
 
