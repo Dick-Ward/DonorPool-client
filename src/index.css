@@ -26,8 +26,8 @@
 
 .cardImage {
   float: left;
-  max-height: 58px;
-  max-width: 58px;
+  max-height: 36px;
+  max-width: 36px;
   padding-top: 2px;
   padding-left: 2px;
 }
