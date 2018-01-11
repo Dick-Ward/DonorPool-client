@@ -20,6 +20,7 @@ const Navigation = () => {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>Adjust Donations</DropdownItem>
+            <DropdownItem>Donation History</DropdownItem>
             <DropdownItem>User Preferences</DropdownItem>
             <DropdownItem divider />
             <DropdownItem>Sign Out</DropdownItem>

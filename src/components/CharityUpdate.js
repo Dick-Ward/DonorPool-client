@@ -13,7 +13,7 @@ const CharityUpdate = () => {
     <Card style={{ margin: "5px" }}>
       <CardBody>
         <CardSubtitle>Charity Name</CardSubtitle>
-        <CardImg src="http://via.placeholder.com/500x100" />
+        <CardImg src="http://via.placeholder.com/700x150" />
 
         <CardTitle>Update Headline</CardTitle>
         <CardText>

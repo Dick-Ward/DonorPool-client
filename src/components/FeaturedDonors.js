@@ -15,13 +15,12 @@ const featuredDonor = (
     <CardBody>
       <CardImg
         style={{ maxHeight: "150px", maxWidth: "150px" }}
-        src="http://via.placeholder.com/50x50"
+        src="http://via.placeholder.com/150x150"
       />
 
       <CardTitle>Celebrity Name</CardTitle>
       <CardText>
-        Holy crap, check out this cool thing we did with the money you've been
-        giving us! Isn't it great?
+        I'm a celebrity and this is the cause that I believe in!
       </CardText>
     </CardBody>
   </Card>
