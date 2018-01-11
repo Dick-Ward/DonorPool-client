@@ -1,14 +1,38 @@
 import React from "react";
 
-const FeaturedDonors = () => {
-  const icon = "http://via.placeholder.com/60x60";
+import {
+  Card,
+  CardBody,
+  CardText,
+  CardTitle,
+  CardImg,
+  CardSubtitle,
+  Container
+} from "reactstrap";
 
+const featuredDonor = (
+  <Card style={{ margin: "5px" }}>
+    <CardBody>
+      <CardImg
+        style={{ maxHeight: "150px", maxWidth: "150px" }}
+        src="http://via.placeholder.com/50x50"
+      />
+
+      <CardTitle>Celebrity Name</CardTitle>
+      <CardText>
+        Holy crap, check out this cool thing we did with the money you've been
+        giving us! Isn't it great?
+      </CardText>
+    </CardBody>
+  </Card>
+);
+
+const FeaturedDonors = () => {
   return (
-    <div className="charityCard">
-      <img className="cardImage" src={icon} />
-      <div className="cardByline">$xx/mo</div>
-      <div className="cardHeadline">Charity Name</div>
-      <div className="cardDescription">One line description of charity.</div>
+    <div>
+      {featuredDonor}
+      {featuredDonor}
+      {featuredDonor}
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React from "react";
-import DonorFeed from "../components/DonorFeed";
+import FeaturedDonors from "../components/FeaturedDonors";
 
 class RightSidebarContainer extends React.Component {
   render() {
-    return <div>right sidebar</div>;
+    return <FeaturedDonors />;
   }
 }
 

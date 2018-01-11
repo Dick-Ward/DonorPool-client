@@ -28,7 +28,7 @@ class DonorViewContainer extends React.Component {
             <CharityFeedContainer />
           </Col>
 
-          <Col style={{ backgroundColor: "yellow" }}>
+          <Col>
             <RightSidebarContainer />
           </Col>
         </Row>
