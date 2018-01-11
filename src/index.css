@@ -26,8 +26,10 @@
 
 .cardImage {
   float: left;
-  max-height: 4em;
-  max-width: 4em;
+  max-height: 58px;
+  max-width: 58px;
+  padding-top: 2px;
+  padding-left: 2px;
 }
 
 .categoryTitle {

@@ -1,11 +1,11 @@
 import React from "react";
 
-import handshake from "../handshake.png";
+const icon = "http://via.placeholder.com/60x60";
 
 const DonorFeed = () => {
   const card = (
     <div className="charityCard">
-      <img className="cardImage" src={handshake} />
+      <img className="cardImage" src={icon} />
       <div className="cardByline">$xx/mo</div>
       <div className="cardHeadline">Charity Name</div>
       <div className="cardDescription">One line description of charity.</div>
