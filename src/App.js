@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 import DonorViewContainer from "./containers/DonorViewContainer";
 import Navigation from "./components/Navigation";
 import { connect } from "react-redux";
@@ -12,8 +13,10 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        {/* <DonorViewContainer /> */}
-        <SplashPageContainer />
+        <Switch>
+          <Route exact path="/" component={DonorViewContainer} />
+          <Route exact path="/login" component={SplashPageContainer} />
+        </Switch>
       </div>
     );
   }
