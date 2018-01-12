@@ -8,11 +8,11 @@ const headers = {
   Authorization: token
 };
 
-const login = (userName, password) => {
+const login = (username, password) => {
   return fetch(`${API_ROOT}/auth/`, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ userName, password })
+    body: JSON.stringify({ user_name: username, password })
   }).then(res => res.json());
 };
 
@@ -22,11 +22,11 @@ const getCurrentUser = () => {
   }).then(res => res.json());
 };
 
-const signup = (userName, password) => {
-  return fetch(`${API_ROOT}/auth/`, {
+const signup = (username, password) => {
+  return fetch(`${API_ROOT}/users/`, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ userName, password })
+    body: JSON.stringify({ user_name: username, password })
   }).then(res => res.json());
 };
 
