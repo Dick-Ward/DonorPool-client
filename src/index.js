@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { rootReducer } from "./reducers";
 import reduxThunk from "redux-thunk";
 

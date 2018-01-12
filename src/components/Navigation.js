@@ -13,31 +13,26 @@ import {
 
 class Navigation extends React.Component {
   render() {
-    console.log(this.props.loggedIn);
     return (
-      <div>
-        {this.props.loggedIn ? (
-          <Navbar light>
-            <NavbarBrand>DonorPool</NavbarBrand>
-            <Nav className="ml-auto" navbar>
-              <UncontrolledDropdown nav>
-                <DropdownToggle nav caret>
-                  My Account
-                </DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem>Adjust Donations</DropdownItem>
-                  <DropdownItem>Donation History</DropdownItem>
-                  <DropdownItem>User Preferences</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Sign Out</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Navbar>
-        ) : (
-          <div> log the fuck in </div>
-        )}
-      </div>
+      <Navbar light>
+        <NavbarBrand>DonorPool</NavbarBrand>
+        <Nav className="ml-auto" navbar>
+          {this.props.loggedIn ? (
+            <UncontrolledDropdown nav>
+              <DropdownToggle nav caret>
+                My Account
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>Adjust Donations</DropdownItem>
+                <DropdownItem>Donation History</DropdownItem>
+                <DropdownItem>User Preferences</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Sign Out</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          ) : null}
+        </Nav>
+      </Navbar>
     );
   }
 }

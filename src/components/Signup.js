@@ -2,15 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Container
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
 
 class Signup extends React.Component {
   state = {

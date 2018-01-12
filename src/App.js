@@ -3,20 +3,17 @@ import DonorViewContainer from "./containers/DonorViewContainer";
 import Navigation from "./components/Navigation";
 import { connect } from "react-redux";
 import * as actions from "./actions";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import SplashPageContainer from "./containers/SplashPageContainer";
 
 import "./App.css";
 
 class App extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <Navigation />
         {/* <DonorViewContainer /> */}
-        <Login />
-        {/* <Signup /> */}
+        <SplashPageContainer />
       </div>
     );
   }

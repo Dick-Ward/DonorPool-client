@@ -1,5 +1,5 @@
 import api from "../services/api";
-import { LOGIN, SET_CURRENT_USER, ASYNC_START } from "./types";
+import { SET_CURRENT_USER, ASYNC_START } from "./types";
 
 export const fetchUser = () => dispatch => {
   dispatch({ type: ASYNC_START });
