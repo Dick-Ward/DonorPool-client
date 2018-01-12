@@ -20,6 +20,7 @@ class Signup extends React.Component {
   render() {
     return (
       <Container>
+        <h3>Sign Up</h3>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="loginUsername">Username:</Label>

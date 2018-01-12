@@ -20,6 +20,7 @@ class Login extends React.Component {
   render() {
     return (
       <Container>
+        <h3>Log In</h3>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="loginUsername">Username:</Label>

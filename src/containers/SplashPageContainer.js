@@ -7,14 +7,24 @@ class SplashPageContainer extends React.Component {
   state = {
     active: null
   };
-  handleClick = e => {
-    console.log(e);
+  handleClick = event => {
+    if (this.state.active === event.target.value) {
+      this.setState({ active: null });
+    } else {
+      this.setState({ active: event.target.value });
+    }
   };
   render() {
     return (
       <div>
-        <Button className="Login">Log In</Button>
-        <Button className="Signup">Sign Up</Button>
+        <Button onClick={this.handleClick} className="Login" value="Login">
+          Log In
+        </Button>
+        <Button onClick={this.handleClick} className="Signup" value="Signup">
+          Sign Up
+        </Button>
+        {this.state.active === "Login" ? <Login /> : null}
+        {this.state.active === "Signup" ? <Signup /> : null}
       </div>
     );
   }
