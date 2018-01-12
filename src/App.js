@@ -3,6 +3,7 @@ import DonorViewContainer from "./containers/DonorViewContainer";
 import Navigation from "./components/Navigation";
 import { connect } from "react-redux";
 import fetchUser from "./actions";
+import Login from "./components/Login";
 
 import "./App.css";
 
@@ -11,9 +12,9 @@ class App extends Component {
     console.log(this.props);
     return (
       <div>
-        <button onClick={this.props.fetchUser}> log in </button>
         <Navigation />
-        <DonorViewContainer />
+        {/* <DonorViewContainer /> */}
+        <Login />
       </div>
     );
   }
