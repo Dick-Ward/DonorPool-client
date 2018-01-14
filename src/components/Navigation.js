@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import * as actions from "../actions";
 
 import {
   Navbar,
@@ -12,6 +14,9 @@ import {
 } from "reactstrap";
 
 class Navigation extends React.Component {
+  handleLogout = () => {
+    this.props.logout(this.props.history);
+  };
   render() {
     return (
       <Navbar light>
@@ -19,6 +24,7 @@ class Navigation extends React.Component {
         <Nav className="ml-auto" navbar>
           {this.props.loggedIn ? (
             <UncontrolledDropdown nav>
+              <div> welcome {this.props.username}</div>
               <DropdownToggle nav caret>
                 My Account
               </DropdownToggle>
@@ -27,10 +33,14 @@ class Navigation extends React.Component {
                 <DropdownItem>Donation History</DropdownItem>
                 <DropdownItem>User Preferences</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>Sign Out</DropdownItem>
+                <DropdownItem onClick={this.handleLogout}>
+                  Sign Out
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-          ) : null}
+          ) : (
+            <div> You gotta log in!</div>
+          )}
         </Nav>
       </Navbar>
     );
@@ -38,7 +48,8 @@ class Navigation extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.user.loggedIn
+  username: state.user.username,
+  loggedIn: !!state.user.username
 });
 
-export default connect(mapStateToProps)(Navigation);
+export default withRouter(connect(mapStateToProps, actions)(Navigation));

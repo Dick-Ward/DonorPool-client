@@ -13,17 +13,28 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        <Switch>
-          <Route exact path="/" component={DonorViewContainer} />
-          <Route exact path="/login" component={SplashPageContainer} />
-        </Switch>
+        {this.props.loggedIn ? (
+          <Switch>
+            <Route exact path="/" component={DonorViewContainer} />
+            <Route exact path="/login" component={SplashPageContainer} />
+          </Switch>
+        ) : (
+          <SplashPageContainer />
+        )}
       </div>
     );
+  }
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.props.fetchUser();
+    }
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  loggedIn: !!state.user.username
 });
 
 export default connect(mapStateToProps, actions)(App);

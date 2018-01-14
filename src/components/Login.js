@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import * as actions from "../actions";
 
 import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
@@ -11,7 +12,11 @@ class Login extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.login(this.state.username, this.state.password);
+    this.props.login(
+      this.state.username,
+      this.state.password,
+      this.props.history
+    );
   };
 
   handleChange = event => {
@@ -49,4 +54,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(null, actions)(Login);
+export default withRouter(connect(null, actions)(Login));

@@ -1,11 +1,10 @@
 import { combineReducers } from "redux";
 
-const userReducer = (state = { loggedIn: false }, action) => {
+const userReducer = (state = {}, action) => {
   if (action.type === "SET_CURRENT_USER") {
     return {
       ...state,
-      username: action.user.user_name,
-      loggedIn: true
+      username: action.user.user_name
     };
   } else {
     return state;

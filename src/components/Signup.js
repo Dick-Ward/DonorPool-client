@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import * as actions from "../actions";
 
 import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
@@ -11,7 +12,11 @@ class Signup extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.signup(this.state.username, this.state.password);
+    this.props.signup(
+      this.state.username,
+      this.state.password,
+      this.props.history
+    );
   };
 
   handleChange = event => {
@@ -49,4 +54,4 @@ class Signup extends React.Component {
   }
 }
 
-export default connect(null, actions)(Signup);
+export default withRouter(connect(null, actions)(Signup));
