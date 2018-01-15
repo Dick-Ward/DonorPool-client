@@ -9,6 +9,16 @@ const authReducer = (state = {}, action) => {
   }
 };
 
+const featuredUserReducer = (state = { featuredUsers: [] }, action) => {
+  switch (action.type) {
+    case "SET_FEATURED_USERS":
+      return { ...state, featuredUsers: action.users };
+    default:
+      return state;
+  }
+};
+
 export const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  featured: featuredUserReducer
 });

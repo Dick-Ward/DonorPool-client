@@ -1,5 +1,5 @@
 import api from "../services/api";
-import { SET_CURRENT_USER, ASYNC_START } from "./types";
+import { SET_CURRENT_USER, ASYNC_START, SET_FEATURED_USERS } from "./types";
 
 export const fetchUser = () => dispatch => {
   dispatch({ type: ASYNC_START });
@@ -31,4 +31,11 @@ export const logout = history => dispatch => {
   localStorage.removeItem("token");
   dispatch({ type: SET_CURRENT_USER, user });
   history.push("/login");
+};
+
+export const fetchFeatured = () => dispatch => {
+  dispatch({ type: ASYNC_START });
+  api.views.featuredUsers().then(users => {
+    dispatch({ type: SET_FEATURED_USERS, users });
+  });
 };

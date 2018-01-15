@@ -30,10 +30,19 @@ const signup = (username, password) => {
   }).then(res => res.json());
 };
 
+const featuredUsers = () => {
+  return fetch(`${API_ROOT}/featured_users`, {
+    headers: headers
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
     signup,
     getCurrentUser
+  },
+  views: {
+    featuredUsers
   }
 };
