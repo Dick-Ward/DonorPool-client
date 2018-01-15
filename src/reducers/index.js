@@ -1,16 +1,14 @@
 import { combineReducers } from "redux";
 
-const userReducer = (state = {}, action) => {
-  if (action.type === "SET_CURRENT_USER") {
-    return {
-      ...state,
-      username: action.user.user_name
-    };
-  } else {
-    return state;
+const authReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_CURRENT_USER":
+      return { ...state, currentUser: action.user };
+    default:
+      return state;
   }
 };
 
 export const rootReducer = combineReducers({
-  user: userReducer
+  auth: authReducer
 });

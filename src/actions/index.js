@@ -27,7 +27,7 @@ export const signup = (username, password, history) => dispatch => {
 };
 
 export const logout = history => dispatch => {
-  let user = {};
+  let user = null;
   localStorage.removeItem("token");
   dispatch({ type: SET_CURRENT_USER, user });
   history.push("/login");

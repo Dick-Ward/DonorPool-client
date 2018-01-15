@@ -1,17 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 import CharityMini from "./CharityMini";
 
-const DonorFeed = () => {
-  return (
-    <div>
-      <CharityMini />
-      <CharityMini />
-      <CharityMini />
-      <CharityMini />
-      <CharityMini />
-      <CharityMini />
-    </div>
-  );
-};
+class DonorFeed extends React.Component {
+  render() {
+    const { charities } = this.props;
 
-export default DonorFeed;
+    const charity = charities.map(charity => {
+      return (
+        <CharityMini
+          name={charity.name}
+          tagline={charity.tagline}
+          icon={charity.icon}
+          key={charity.id}
+        />
+      );
+    });
+    return <div>{charity}</div>;
+  }
+}
+
+const mapStateToProps = state => ({
+  charities: state.auth.currentUser.supported_charities
+});
+
+export default connect(mapStateToProps)(DonorFeed);

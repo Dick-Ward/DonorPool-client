@@ -22,7 +22,7 @@ class Navigation extends React.Component {
       <Navbar light>
         <NavbarBrand>DonorPool</NavbarBrand>
         <Nav className="ml-auto" navbar>
-          {this.props.loggedIn ? (
+          {!!this.props.user ? (
             <UncontrolledDropdown nav>
               <div> welcome {this.props.username}</div>
               <DropdownToggle nav caret>
@@ -48,8 +48,7 @@ class Navigation extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  username: state.user.username,
-  loggedIn: !!state.user.username
+  user: state.auth.currentUser
 });
 
 export default withRouter(connect(mapStateToProps, actions)(Navigation));

@@ -33,8 +33,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  loggedIn: !!state.user.username
+  loggedIn: !!state.auth.currentUser
 });
 
 export default connect(mapStateToProps, actions)(App);
