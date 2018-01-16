@@ -24,14 +24,14 @@ class Navigation extends React.Component {
         <Nav className="ml-auto" navbar>
           {!!this.props.user ? (
             <UncontrolledDropdown nav>
-              <div> welcome {this.props.username}</div>
+              <div> Welcome {this.props.user.first_name}!</div>
               <DropdownToggle nav caret>
                 My Account
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem>Adjust Donations</DropdownItem>
-                <DropdownItem>Donation History</DropdownItem>
-                <DropdownItem>User Preferences</DropdownItem>
+                <DropdownItem>My Donations</DropdownItem>
+                <DropdownItem>My Donation History</DropdownItem>
+                <DropdownItem>My Preferences</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem onClick={this.handleLogout}>
                   Sign Out

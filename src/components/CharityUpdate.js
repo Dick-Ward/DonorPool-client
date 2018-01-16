@@ -9,7 +9,6 @@ import {
 } from "reactstrap";
 
 const CharityUpdate = props => {
-  console.log(props);
   return (
     <Card style={{ margin: "5px" }}>
       <CardBody>

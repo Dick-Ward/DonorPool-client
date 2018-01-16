@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 class CharityFeed extends React.Component {
   render() {
     const { updates } = this.props;
-    console.log(updates);
 
     const updateMap = updates.slice().map(update => {
       return (
