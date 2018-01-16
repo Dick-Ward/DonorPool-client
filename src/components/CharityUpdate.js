@@ -14,7 +14,9 @@ const CharityUpdate = props => {
     <Card style={{ margin: "5px" }}>
       <CardBody>
         <CardSubtitle>Charity Name</CardSubtitle>
-        <CardImg src={props.picture} />
+        <div style={{ maxHeight: "300px", overflow: "hidden" }}>
+          <CardImg src={props.picture} />
+        </div>
 
         <CardTitle>{props.title}</CardTitle>
         <CardText>{props.content}</CardText>
