@@ -36,6 +36,12 @@ const featuredUsers = () => {
   }).then(res => res.json());
 };
 
+const userRelevantUpdates = id => {
+  return fetch(`${API_ROOT}/my_updates/${id}`, {
+    headers: headers
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
@@ -43,6 +49,7 @@ export default {
     getCurrentUser
   },
   views: {
-    featuredUsers
+    featuredUsers,
+    userRelevantUpdates
   }
 };

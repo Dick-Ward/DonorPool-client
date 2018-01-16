@@ -18,7 +18,18 @@ const featuredUserReducer = (state = { featuredUsers: [] }, action) => {
   }
 };
 
+const userRelevantUpdateReducer = (state = { updates: [] }, action) => {
+  switch (action.type) {
+    case "SET_RELEVANT_UPDATES":
+      console.log(action);
+      return { ...state, updates: action.updates };
+    default:
+      return state;
+  }
+};
+
 export const rootReducer = combineReducers({
   auth: authReducer,
-  featured: featuredUserReducer
+  featured: featuredUserReducer,
+  updates: userRelevantUpdateReducer
 });

@@ -6,7 +6,7 @@ const FeaturedDonors = props => {
   const supported = props.supported.map(charity => (
     <li key={charity}>{charity}</li>
   ));
-  console.log(props);
+
   const name = `${props.firstName} ${props.lastName}`;
   return (
     <Card style={{ margin: "5px" }}>

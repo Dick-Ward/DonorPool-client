@@ -1,19 +1,25 @@
 import React from "react";
 import CharityUpdate from "./CharityUpdate";
+import * as actions from "../actions";
+import { connect } from "react-redux";
 
-const CharityFeed = () => {
-  return (
-    <div>
-      <CharityUpdate />
-      <CharityUpdate />
-      <CharityUpdate />
-      <CharityUpdate />
-      <CharityUpdate />
-      <CharityUpdate />
-      <CharityUpdate />
-      <CharityUpdate />
-    </div>
-  );
-};
+class CharityFeed extends React.Component {
+  render() {
+    console.log(this.props.state);
+    return (
+      <div>
+        <CharityUpdate />
+      </div>
+    );
+  }
+  componentDidMount() {
+    this.props.fetchRelevantUpdates(this.props.currentUserId);
+  }
+}
 
-export default CharityFeed;
+const mapStateToProps = state => ({
+  currentUserId: state.auth.currentUser.id,
+  state: state
+});
+
+export default connect(mapStateToProps, actions)(CharityFeed);
