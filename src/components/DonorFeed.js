@@ -21,7 +21,8 @@ class DonorFeed extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  charities: state.auth.currentUser.supported_charities
+  state: state,
+  charities: state.auth.user.supported
 });
 
 export default connect(mapStateToProps)(DonorFeed);

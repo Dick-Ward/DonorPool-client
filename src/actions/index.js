@@ -3,7 +3,8 @@ import {
   SET_CURRENT_USER,
   ASYNC_START,
   SET_FEATURED_USERS,
-  SET_RELEVANT_UPDATES
+  SET_RELEVANT_UPDATES,
+  LOG_OUT
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -34,7 +35,7 @@ export const signup = (username, password, history) => dispatch => {
 export const logout = history => dispatch => {
   let user = null;
   localStorage.removeItem("token");
-  dispatch({ type: SET_CURRENT_USER, user });
+  dispatch({ type: LOG_OUT, user });
   history.push("/login");
 };
 

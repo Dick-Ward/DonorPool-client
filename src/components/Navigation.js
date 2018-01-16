@@ -48,7 +48,7 @@ class Navigation extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.currentUser
+  user: state.auth.user
 });
 
 export default withRouter(connect(mapStateToProps, actions)(Navigation));
