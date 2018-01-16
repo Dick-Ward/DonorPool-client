@@ -8,18 +8,16 @@ import {
   CardSubtitle
 } from "reactstrap";
 
-const CharityUpdate = () => {
+const CharityUpdate = props => {
+  console.log(props);
   return (
     <Card style={{ margin: "5px" }}>
       <CardBody>
         <CardSubtitle>Charity Name</CardSubtitle>
-        <CardImg src="http://via.placeholder.com/700x150" />
+        <CardImg src={props.picture} />
 
-        <CardTitle>Update Headline</CardTitle>
-        <CardText>
-          Holy crap, check out this cool thing we did with the money you've been
-          giving us! Isn't it great?
-        </CardText>
+        <CardTitle>{props.title}</CardTitle>
+        <CardText>{props.content}</CardText>
       </CardBody>
     </Card>
   );

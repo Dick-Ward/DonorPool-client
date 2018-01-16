@@ -5,12 +5,22 @@ import { connect } from "react-redux";
 
 class CharityFeed extends React.Component {
   render() {
-    console.log(this.props.state);
-    return (
-      <div>
-        <CharityUpdate />
-      </div>
-    );
+    const { updates } = this.props;
+    console.log(updates);
+
+    const updateMap = updates.slice().map(update => {
+      return (
+        <CharityUpdate
+          key={update.id}
+          id={update.id}
+          title={update.title}
+          content={update.content}
+          picture={update.picture}
+        />
+      );
+    });
+
+    return <div>{updateMap}</div>;
   }
   componentDidMount() {
     this.props.fetchRelevantUpdates(this.props.currentUserId);
@@ -19,7 +29,7 @@ class CharityFeed extends React.Component {
 
 const mapStateToProps = state => ({
   currentUserId: state.auth.currentUser.id,
-  state: state
+  updates: state.updates.updates
 });
 
 export default connect(mapStateToProps, actions)(CharityFeed);
