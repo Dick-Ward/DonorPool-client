@@ -25,7 +25,7 @@ class RightSidebarContainer extends React.Component {
           <FeaturedDonors
             firstName={user.first_name}
             lastName={user.last_name}
-            supported={user.supported_charities}
+            supported={user.supported}
             picture={user.picture}
             key={user.id}
             id={user.id}
