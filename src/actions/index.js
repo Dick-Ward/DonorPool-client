@@ -1,5 +1,13 @@
 import api from "../services/api";
-import { SET_CURRENT_USER, ASYNC_START, LOG_OUT, HANDLE_SEARCH } from "./types";
+import {
+  SET_CURRENT_USER,
+  ASYNC_START,
+  LOG_OUT,
+  HANDLE_SEARCH,
+  SEARCH_VIEW,
+  UPDATES_VIEW,
+  INDIVIDUAL_CHARITY_VIEW
+} from "./types";
 
 export const fetchUser = () => dispatch => {
   dispatch({ type: ASYNC_START });
@@ -35,4 +43,16 @@ export const logout = history => dispatch => {
 
 export const handleSearch = searchQuery => dispatch => {
   dispatch({ type: HANDLE_SEARCH, searchQuery });
+};
+
+export const searchView = () => dispatch => {
+  dispatch({ type: SEARCH_VIEW });
+};
+
+export const updatesView = () => dispatch => {
+  dispatch({ type: UPDATES_VIEW });
+};
+
+export const individualCharityView = () => dispatch => {
+  dispatch({ type: INDIVIDUAL_CHARITY_VIEW });
 };

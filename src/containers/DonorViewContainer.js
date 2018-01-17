@@ -4,6 +4,7 @@ import DonorFeedContainer from "./DonorFeedContainer";
 import RightSidebarContainer from "./RightSidebarContainer";
 import SearchContainer from "./SearchContainer";
 import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class DonorViewContainer extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class DonorViewContainer extends React.Component {
           <Col />
 
           <Col xs="10" sm="6">
-            <SearchContainer handleToggle={this.handleToggle} />
+            <SearchContainer />
           </Col>
 
           <Col />
@@ -33,6 +34,13 @@ class DonorViewContainer extends React.Component {
       </div>
     );
   }
+  componentDidMount() {
+    if (this.props.user.supported.length !== 0) {
+      this.props.updatesView();
+    } else {
+      this.props.searchView();
+    }
+  }
 }
 
 const mapStateToProps = state => ({
@@ -41,4 +49,4 @@ const mapStateToProps = state => ({
   active: state.views.donorFeed
 });
 
-export default connect(mapStateToProps)(DonorViewContainer);
+export default connect(mapStateToProps, actions)(DonorViewContainer);
