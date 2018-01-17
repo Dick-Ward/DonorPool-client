@@ -4,12 +4,11 @@ import DonorFeedContainer from "./DonorFeedContainer";
 import CharityFeedContainer from "./CharityFeedContainer";
 import RightSidebarContainer from "./RightSidebarContainer";
 import SearchContainer from "./SearchContainer";
-import CharityFull from "../components/CharityFull";
+import SearchResultsContainer from "./SearchResultsContainer";
 import { connect } from "react-redux";
 
 class DonorViewContainer extends React.Component {
   render() {
-    console.log(this.props.user.supported.length);
     return (
       <div>
         <Row>
@@ -31,7 +30,7 @@ class DonorViewContainer extends React.Component {
             {this.props.user.supported.length > 0 ? (
               <CharityFeedContainer />
             ) : (
-              <CharityFull />
+              <SearchResultsContainer />
             )}
           </Col>
 
