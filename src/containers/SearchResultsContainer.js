@@ -10,7 +10,11 @@ class SearchResultsContainer extends React.Component {
     this.props.searchQuery === ""
       ? (searchedCharities = this.props.charities)
       : (searchedCharities = this.props.charities.filter(charity => {
-          return charity.name.toLowerCase().includes(query.toLowerCase());
+          return (
+            charity.name.toLowerCase().includes(query.toLowerCase()) ||
+            charity.tagline.toLowerCase().includes(query.toLowerCase()) ||
+            charity.mission.toLowerCase().includes(query.toLowerCase())
+          );
         }));
     return <SearchResults charities={searchedCharities} />;
   }
