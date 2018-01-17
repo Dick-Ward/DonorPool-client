@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 class SearchResultsContainer extends React.Component {
   render() {
-    console.log(this.props.searchQuery);
     const query = this.props.searchQuery;
     let searchedCharities;
     this.props.searchQuery === ""

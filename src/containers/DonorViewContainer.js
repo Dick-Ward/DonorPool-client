@@ -14,12 +14,11 @@ class DonorViewContainer extends React.Component {
 
   render() {
     const thing =
-      this.props.user.supported === 0 || this.props.searchQuery != "" ? (
+      this.props.user.supported === 0 || this.props.searchQuery !== "" ? (
         <SearchResultsContainer />
       ) : (
         <CharityFeedContainer />
       );
-    console.log(this.props);
 
     return (
       <div>
