@@ -4,12 +4,20 @@ import * as actions from "../actions";
 import FeaturedDonors from "../components/FeaturedDonors";
 
 class RightSidebarContainer extends React.Component {
+  handleClick = event => {
+    const id = parseInt(event.target.id, 10);
+    const individualCharity = this.props.charities.find(charity => {
+      return charity.id === id;
+    });
+    this.props.individualCharityView(individualCharity);
+  };
   render() {
     const { featuredUsers } = this.props;
 
     const featuredUsersMapped = featuredUsers.map(user => {
       return (
         <FeaturedDonors
+          handleClick={this.handleClick}
           firstName={user.first_name}
           lastName={user.last_name}
           supported={user.supported}
@@ -25,7 +33,8 @@ class RightSidebarContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  featuredUsers: state.auth.featured
+  featuredUsers: state.auth.featured,
+  charities: state.auth.charities_list
 });
 
 export default connect(mapStateToProps, actions)(RightSidebarContainer);

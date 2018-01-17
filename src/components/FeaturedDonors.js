@@ -4,7 +4,14 @@ import { Card, CardBody, CardSubtitle, CardTitle, CardImg } from "reactstrap";
 
 const FeaturedDonors = props => {
   const supported = props.supported.map(charity => (
-    <li key={charity}>{charity}</li>
+    <li
+      className="clickable"
+      onClick={props.handleClick}
+      id={charity.id}
+      key={charity.id}
+    >
+      {charity.name}
+    </li>
   ));
 
   const name = `${props.firstName} ${props.lastName}`;

@@ -38,7 +38,7 @@ const activeViewReducer = (
     case "UPDATES_VIEW":
       return { ...state, donorFeed: <CharityFeedContainer /> };
     case "INDIVIDUAL_CHARITY_VIEW":
-      return { ...state, donorFeed: <CharityFull /> };
+      return { ...state, donorFeed: <CharityFull charity={action.charity} /> };
     default:
       return state;
   }

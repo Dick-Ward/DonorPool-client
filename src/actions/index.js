@@ -53,6 +53,6 @@ export const updatesView = () => dispatch => {
   dispatch({ type: UPDATES_VIEW });
 };
 
-export const individualCharityView = () => dispatch => {
-  dispatch({ type: INDIVIDUAL_CHARITY_VIEW });
+export const individualCharityView = charity => dispatch => {
+  dispatch({ type: INDIVIDUAL_CHARITY_VIEW, charity });
 };

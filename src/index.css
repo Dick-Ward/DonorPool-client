@@ -9,14 +9,6 @@ body {
   border-radius: 20px;
 }
 
-.charityCard {
-  outline: solid;
-  outline-width: thin;
-  outline-color: RGBa(30, 30, 30, 0.3);
-  margin: 5px;
-  background-color: white;
-}
-
 .cardHeadline {
   font-size: 1.5em;
 }
@@ -46,6 +38,18 @@ body {
 .categoryTitle {
   font-size: 2em;
   text-align: center;
+}
+
+.charityCard {
+  outline: solid;
+  outline-width: thin;
+  outline-color: RGBa(30, 30, 30, 0.3);
+  margin: 5px;
+  background-color: white;
+}
+
+.clickable:hover {
+  cursor: pointer;
 }
 
 .searchCardImage {
