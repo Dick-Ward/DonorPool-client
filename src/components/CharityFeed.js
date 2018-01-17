@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 class CharityFeed extends React.Component {
   render() {
-    console.log(this.props);
     const { updates } = this.props;
     const updateSort = updates.sort(function(a, b) {
       return Date(b.created_at) - Date(a.created_at);
