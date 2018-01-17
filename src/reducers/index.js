@@ -15,26 +15,16 @@ const authReducer = (state = {}, action) => {
   }
 };
 
-// const featuredUserReducer = (state = { featuredUsers: [] }, action) => {
-//   switch (action.type) {
-//     case "SET_FEATURED_USERS":
-//       return { ...state, featuredUsers: action.users };
-//     default:
-//       return state;
-//   }
-// };
-//
-// const userRelevantUpdateReducer = (state = { updates: [] }, action) => {
-//   switch (action.type) {
-//     case "SET_RELEVANT_UPDATES":
-//       return { ...state, updates: action.updates };
-//     default:
-//       return state;
-//   }
-// };
+const searchReducer = (state = { searchQuery: "" }, action) => {
+  switch (action.type) {
+    case "HANDLE_SEARCH":
+      return { ...state, searchQuery: action.searchQuery };
+    default:
+      return state;
+  }
+};
 
 export const rootReducer = combineReducers({
-  auth: authReducer
-  // featured: featuredUserReducer,
-  // updates: userRelevantUpdateReducer
+  auth: authReducer,
+  search: searchReducer
 });

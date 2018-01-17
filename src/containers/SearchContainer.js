@@ -1,15 +1,15 @@
 import React from "react";
 import Search from "../components/Search";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class SearchContainer extends React.Component {
-  state = {
-    searchQuery: ""
+  handleChange = event => {
+    this.props.handleSearch(event.target.value);
   };
-
   render() {
-    console.log(this.state.searchQuery);
-    return <Search />;
+    return <Search handleChange={this.handleChange} />;
   }
 }
 
-export default SearchContainer;
+export default connect(null, actions)(SearchContainer);

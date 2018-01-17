@@ -24,9 +24,6 @@ class CharityFeed extends React.Component {
 
     return <div>{updateMap}</div>;
   }
-  componentDidMount() {
-    this.props.fetchRelevantUpdates(this.props.currentUserId);
-  }
 }
 
 const mapStateToProps = state => ({

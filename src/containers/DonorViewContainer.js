@@ -14,7 +14,7 @@ class DonorViewContainer extends React.Component {
         <Row>
           <Col />
 
-          <Col sm="6">
+          <Col xs="10" sm="6">
             <SearchContainer />
           </Col>
 

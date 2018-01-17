@@ -5,3 +5,4 @@ export const SIGNUP = "SIGNUP";
 export const LOG_OUT = "LOG_OUT";
 export const ASYNC_START = "ASYNC_START";
 export const SET_RELEVANT_UPDATES = "SET_RELEVANT_UPDATES";
+export const HANDLE_SEARCH = "HANDLE_SEARCH";
