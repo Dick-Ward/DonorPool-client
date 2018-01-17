@@ -12,6 +12,7 @@ class DonorFeed extends React.Component {
           name={charity.name}
           tagline={charity.tagline}
           icon={charity.icon}
+          pledge={charity.pledge}
           key={charity.id}
         />
       );
@@ -21,7 +22,6 @@ class DonorFeed extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  state: state,
   charities: state.auth.user.supported
 });
 
