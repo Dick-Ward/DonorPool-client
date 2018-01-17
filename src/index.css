@@ -2,6 +2,13 @@ body {
   background-image: url("crossword.png");
 }
 
+.byLine {
+  margin: 5px;
+  font-style: italic;
+  background-color: RGBa(30, 30, 30, 0.15);
+  border-radius: 20px;
+}
+
 .charityCard {
   outline: solid;
   outline-width: thin;
@@ -21,7 +28,7 @@ body {
   border: hidden;
   border-color: RGBa(30, 30, 30, 0.3);
   border-radius: 15%;
-  background-color: RGBa(30, 30, 30, 0.3);
+  background-color: RGBa(30, 30, 30, 0.15);
 }
 
 .cardDescription {
@@ -39,6 +46,11 @@ body {
 .categoryTitle {
   font-size: 2em;
   text-align: center;
+}
+
+.fullCardImage {
+  max-height: 50px;
+  align: left;
 }
 
 .sideContainer {

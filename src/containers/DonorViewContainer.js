@@ -4,6 +4,7 @@ import DonorFeedContainer from "./DonorFeedContainer";
 import CharityFeedContainer from "./CharityFeedContainer";
 import RightSidebarContainer from "./RightSidebarContainer";
 import SearchContainer from "./SearchContainer";
+import CharityFull from "../components/CharityFull";
 
 class DonorViewContainer extends React.Component {
   render() {
