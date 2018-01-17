@@ -8,14 +8,26 @@ import SearchResultsContainer from "./SearchResultsContainer";
 import { connect } from "react-redux";
 
 class DonorViewContainer extends React.Component {
+  state = {
+    active: <SearchResultsContainer />
+  };
+
   render() {
+    const thing =
+      this.props.user.supported === 0 || this.props.searchQuery != "" ? (
+        <SearchResultsContainer />
+      ) : (
+        <CharityFeedContainer />
+      );
+    console.log(this.props);
+
     return (
       <div>
         <Row>
           <Col />
 
           <Col xs="10" sm="6">
-            <SearchContainer />
+            <SearchContainer handleToggle={this.handleToggle} />
           </Col>
 
           <Col />
@@ -26,13 +38,7 @@ class DonorViewContainer extends React.Component {
             <DonorFeedContainer />
           </Col>
 
-          <Col sm="6">
-            {this.props.user.supported.length > 0 ? (
-              <CharityFeedContainer />
-            ) : (
-              <SearchResultsContainer />
-            )}
-          </Col>
+          <Col sm="6">{thing}</Col>
 
           <Col>
             <RightSidebarContainer />
@@ -41,10 +47,12 @@ class DonorViewContainer extends React.Component {
       </div>
     );
   }
+  componentDidLoad() {}
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  searchQuery: state.search.searchQuery
 });
 
 export default connect(mapStateToProps)(DonorViewContainer);

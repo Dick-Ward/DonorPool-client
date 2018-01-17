@@ -7,6 +7,7 @@ class SearchContainer extends React.Component {
   handleChange = event => {
     this.props.handleSearch(event.target.value);
   };
+
   render() {
     return <Search handleChange={this.handleChange} />;
   }
