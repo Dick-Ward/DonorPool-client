@@ -15,7 +15,7 @@ const SearchResults = props => {
       />
     );
   });
-  console.log(charities);
+
   return <div>{charityMap}</div>;
 };
 

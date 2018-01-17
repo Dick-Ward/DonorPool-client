@@ -6,7 +6,7 @@ const CharitySearchItem = props => {
     <div className="charityCard ">
       <Row>
         <Col sm="1">
-          <img className="searchCardImage" src={props.icon} />
+          <img className="searchCardImage" src={props.icon} alt={props.name} />
         </Col>
         <Col>
           <h3>{props.name}</h3>
