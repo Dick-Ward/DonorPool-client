@@ -72,6 +72,7 @@ export const individualCharityView = charity => dispatch => {
 };
 
 export const addSupport = (user, charity, pledge) => dispatch => {
+  api.support.addSupport(user, charity, pledge);
   dispatch({ type: ADD_SUPPORT, user, charity, pledge });
   dispatch({ type: ADD_PLEDGE, charity, pledge });
 };

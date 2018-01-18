@@ -11,6 +11,10 @@ class CharityFull extends React.Component {
   render() {
     const { charity } = this.props;
 
+    const supportedCheck = this.props.supported.filter(supportedCharity => {
+      return supportedCharity.id === charity.id;
+    });
+
     return (
       <div>
         {this.props.supported.length > 1 ? (
@@ -42,9 +46,11 @@ class CharityFull extends React.Component {
               <div>Cause: {charity.cause}</div>
             </ul>
             <div>{charity.mission}</div>
-            <Button onClick={this.handleClick} style={{ float: "right" }}>
-              Support {charity.name}
-            </Button>
+            {supportedCheck.length > 0 ? null : (
+              <Button onClick={this.handleClick} style={{ float: "right" }}>
+                Support {charity.name}
+              </Button>
+            )}
           </CardBody>
         </Card>
       </div>
