@@ -7,7 +7,8 @@ import {
   SEARCH_VIEW,
   UPDATES_VIEW,
   INDIVIDUAL_CHARITY_VIEW,
-  RESET_SEARCH
+  RESET_SEARCH,
+  ADD_SUPPORT
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -67,4 +68,8 @@ export const updatesView = () => dispatch => {
 
 export const individualCharityView = charity => dispatch => {
   dispatch({ type: INDIVIDUAL_CHARITY_VIEW, charity });
+};
+
+export const addSupport = (user, charity) => dispatch => {
+  dispatch({ type: ADD_SUPPORT, user, charity });
 };

@@ -36,6 +36,16 @@ const signup = (user_name, password, email, first_name, last_name) => {
   }).then(res => res.json());
 };
 
+const addSupport = (user, charity, amount) => {
+  return fetch(`${API_ROOT}/users/${user.id}/add_support/${charity.id}`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      amount
+    })
+  }).then(res => res.json());
+};
+
 const featuredUsers = () => {
   return fetch(`${API_ROOT}/featured_users`, {
     headers: headers
@@ -57,5 +67,8 @@ export default {
   views: {
     featuredUsers,
     userRelevantUpdates
+  },
+  supports: {
+    addSupport
   }
 };
