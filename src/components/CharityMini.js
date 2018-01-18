@@ -1,7 +1,6 @@
 import React from "react";
 
 const CharityMini = props => {
-  console.log(props);
   return (
     <div className="charityCard">
       <img className="cardImage" src={props.icon} alt="placeholder" />

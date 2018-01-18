@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 class CharityContainer extends React.Component {
   render() {
-    console.log(this.props);
     return <CharityFull />;
   }
 }

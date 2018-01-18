@@ -13,7 +13,6 @@ class DonorFeed extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const { charities } = this.props;
 
     const charity = charities.map(charity => {

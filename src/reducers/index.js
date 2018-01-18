@@ -23,6 +23,8 @@ const searchReducer = (state = { searchQuery: "" }, action) => {
   switch (action.type) {
     case "HANDLE_SEARCH":
       return { ...state, searchQuery: action.searchQuery };
+    case "RESET_SEARCH":
+      return { ...state, searchQuery: action.searchQuery };
     default:
       return state;
   }
