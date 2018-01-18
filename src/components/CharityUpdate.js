@@ -12,7 +12,13 @@ const CharityUpdate = props => {
   return (
     <Card style={{ margin: "5px" }}>
       <CardBody>
-        <CardSubtitle>{props.name}</CardSubtitle>
+        <CardSubtitle
+          className="clickable"
+          id={props.id}
+          onClick={props.handleClick}
+        >
+          {props.name}
+        </CardSubtitle>
         <div style={{ maxHeight: "300px", overflow: "hidden" }}>
           <CardImg src={props.picture} />
         </div>

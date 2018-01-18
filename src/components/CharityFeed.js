@@ -4,6 +4,14 @@ import * as actions from "../actions";
 import { connect } from "react-redux";
 
 class CharityFeed extends React.Component {
+  handleClick = event => {
+    const id = parseInt(event.target.id, 10);
+    const individualCharity = this.props.charities.find(charity => {
+      return charity.id === id;
+    });
+    this.props.individualCharityView(individualCharity);
+  };
+
   render() {
     const { updates } = this.props;
     const updateSort = updates.sort(function(a, b) {
@@ -19,6 +27,7 @@ class CharityFeed extends React.Component {
           title={update.title}
           content={update.content}
           picture={update.picture}
+          handleClick={this.handleClick}
         />
       );
     });
@@ -29,7 +38,8 @@ class CharityFeed extends React.Component {
 
 const mapStateToProps = state => ({
   currentUserId: state.auth.user.id,
-  updates: state.auth.relevant_updates
+  updates: state.auth.relevant_updates,
+  charities: state.auth.charities_list
 });
 
 export default connect(mapStateToProps, actions)(CharityFeed);

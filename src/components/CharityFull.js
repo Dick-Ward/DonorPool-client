@@ -23,7 +23,9 @@ const Charity = props => {
 
         <div className="byLine">{charity.tagline}</div>
         <div style={{ float: "right" }}>
-          <a href={charity.URL}>Website</a>
+          <a href={charity.URL} target="_blank">
+            Website
+          </a>
         </div>
         <ul>
           <div>Catgory: {charity.category}</div>
