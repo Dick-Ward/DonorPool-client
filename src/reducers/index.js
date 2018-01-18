@@ -13,7 +13,6 @@ const authReducer = (state = {}, action) => {
         user: { ...action.user.data.user, token: action.user.token }
       };
     case "ADD_SUPPORT":
-      console.log(state);
       return {
         ...state,
         user: {
@@ -21,6 +20,9 @@ const authReducer = (state = {}, action) => {
           supported: [...state.user.supported, action.charity]
         }
       };
+    case "ADD_PLEDGE":
+      action.charity.pledge = action.pledge;
+      return state;
     case "LOG_OUT":
       return {};
     default:

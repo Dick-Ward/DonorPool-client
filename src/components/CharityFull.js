@@ -5,11 +5,10 @@ import * as actions from "../actions";
 
 class CharityFull extends React.Component {
   handleClick = event => {
-    this.props.addSupport(this.props.user, this.props.charity);
+    this.props.addSupport(this.props.user, this.props.charity, 5);
   };
 
   render() {
-    console.log(this.props);
     const { charity } = this.props;
 
     return (

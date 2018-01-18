@@ -3,7 +3,7 @@ import React from "react";
 const CharityMini = props => {
   return (
     <div className="charityCard">
-      <img className="cardImage" src={props.icon} alt="placeholder" />
+      <img className="cardImage" src={props.icon} alt={props.name} />
       <div className="cardByline">${props.pledge}/mo</div>
       <div
         id={props.id}
