@@ -22,11 +22,17 @@ const getCurrentUser = () => {
   }).then(res => res.json());
 };
 
-const signup = (username, password) => {
+const signup = (user_name, password, email, first_name, last_name) => {
   return fetch(`${API_ROOT}/users/`, {
     method: "POST",
     headers: headers,
-    body: JSON.stringify({ user_name: username, password })
+    body: JSON.stringify({
+      user_name,
+      password,
+      first_name,
+      last_name,
+      email
+    })
   }).then(res => res.json());
 };
 

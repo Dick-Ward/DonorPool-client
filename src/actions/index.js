@@ -26,9 +26,16 @@ export const login = (username, password, history) => dispatch => {
   });
 };
 
-export const signup = (username, password, history) => dispatch => {
+export const signup = (
+  username,
+  password,
+  email,
+  firstName,
+  lastName,
+  history
+) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.auth.signup(username, password).then(user => {
+  api.auth.signup(username, password, email, firstName, lastName).then(user => {
     localStorage.setItem("token", user.token);
     dispatch({ type: SET_CURRENT_USER, user });
     history.push("/");
