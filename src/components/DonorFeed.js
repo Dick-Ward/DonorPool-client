@@ -14,8 +14,11 @@ class DonorFeed extends React.Component {
 
   render() {
     const { charities } = this.props;
+    const alphabeticalCharities = charities.sort((char, char2) => {
+      return char.name > char2.name;
+    });
 
-    const charity = charities.map(charity => {
+    const charity = alphabeticalCharities.map(charity => {
       return (
         <CharityMini
           handleClick={this.handleClick}
