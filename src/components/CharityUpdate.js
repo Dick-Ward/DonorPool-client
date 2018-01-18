@@ -14,7 +14,7 @@ const CharityUpdate = props => {
       <CardBody>
         <CardSubtitle
           className="clickable"
-          id={props.id}
+          id={props.charityId}
           onClick={props.handleClick}
         >
           {props.name}
