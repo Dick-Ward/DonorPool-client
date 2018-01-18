@@ -6,7 +6,8 @@ import {
   HANDLE_SEARCH,
   SEARCH_VIEW,
   UPDATES_VIEW,
-  INDIVIDUAL_CHARITY_VIEW
+  INDIVIDUAL_CHARITY_VIEW,
+  RESET_SEARCH
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -43,6 +44,10 @@ export const logout = history => dispatch => {
 
 export const handleSearch = searchQuery => dispatch => {
   dispatch({ type: HANDLE_SEARCH, searchQuery });
+};
+
+export const resetSearch = () => dispatch => {
+  dispatch({ type: RESET_SEARCH });
 };
 
 export const searchView = () => dispatch => {

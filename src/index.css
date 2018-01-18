@@ -9,6 +9,10 @@ body {
   border-radius: 20px;
 }
 
+.cardDescription {
+  font-style: italic;
+  font-size: 0.9em;
+}
 .cardHeadline {
   font-size: 1.5em;
 }
@@ -66,6 +70,9 @@ body {
 }
 
 .sideContainer {
-  background-color: RGBa(25, 150, 20, 0.3);
+  outline: solid;
+  outline-width: thin;
+  outline-color: RGBa(30, 30, 30, 0.3);
+  background-color: RGBa(25, 150, 20, 0.2);
   padding-bottom: 1em;
 }

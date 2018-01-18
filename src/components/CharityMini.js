@@ -12,7 +12,7 @@ const CharityMini = props => {
       >
         {props.name}
       </div>
-      <div className="cardText">{props.tagline}</div>
+      <div className="cardDescription">{props.tagline}</div>
     </div>
   );
 };

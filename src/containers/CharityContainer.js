@@ -4,11 +4,19 @@ import { connect } from "react-redux";
 
 class CharityContainer extends React.Component {
   render() {
-    return <CharityFull />;
+    console.log(this.props);
+    return (
+      <div>
+        {this.props.supported.length > 1 ? (
+          <button onClick={this.props.resetSearch}>Back</button>
+        ) : null}
+        <CharityFull />
+      </div>
+    );
   }
 }
 const mapStateToProps = state => ({
-  state: state
+  supported: state.auth.user.supported
 });
 
 export default connect(mapStateToProps)(CharityContainer);

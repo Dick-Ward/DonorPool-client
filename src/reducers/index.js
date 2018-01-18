@@ -24,7 +24,7 @@ const searchReducer = (state = { searchQuery: "" }, action) => {
     case "HANDLE_SEARCH":
       return { ...state, searchQuery: action.searchQuery };
     case "RESET_SEARCH":
-      return { ...state, searchQuery: action.searchQuery };
+      return { ...state, searchQuery: "" };
     default:
       return state;
   }
@@ -41,6 +41,8 @@ const activeViewReducer = (
       return { ...state, donorFeed: <CharityFeedContainer /> };
     case "INDIVIDUAL_CHARITY_VIEW":
       return { ...state, donorFeed: <CharityFull charity={action.charity} /> };
+    case "RESET_SEARCH":
+      return { ...state, donorFeed: <CharityFeedContainer /> };
     default:
       return state;
   }

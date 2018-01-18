@@ -29,8 +29,19 @@ class SearchResults extends React.Component {
       );
     });
 
-    return <div>{charityMap}</div>;
+    return (
+      <div>
+        {this.props.supported.length > 1 ? (
+          <button onClick={this.props.resetSearch}>Back</button>
+        ) : null}
+        {charityMap}
+      </div>
+    );
   }
 }
+const mapStateToProps = state => ({
+  search: state.search.searchQuery,
+  supported: state.auth.user.supported
+});
 
-export default connect(null, actions)(SearchResults);
+export default connect(mapStateToProps, actions)(SearchResults);

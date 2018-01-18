@@ -14,12 +14,18 @@ class SearchContainer extends React.Component {
   };
 
   render() {
-    return <Search handleChange={this.handleChange} />;
+    return (
+      <Search
+        handleChange={this.handleChange}
+        searchQuery={this.props.searchQuery}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  searchQuery: state.search.searchQuery
 });
 
 export default connect(mapStateToProps, actions)(SearchContainer);

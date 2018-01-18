@@ -12,9 +12,10 @@ const Search = props => {
           name="search"
           id="search"
           placeholder="Search..."
+          value={props.searchQuery}
         />
         <FormText color="muted">
-          Search matches by title, cause, and description - in that order.
+          Search matches by title, cause, and mission statement.
         </FormText>
       </FormGroup>
     </Form>
