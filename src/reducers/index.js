@@ -13,10 +13,13 @@ const authReducer = (state = {}, action) => {
         user: { ...action.user.data.user, token: action.user.token }
       };
     case "ADD_SUPPORT":
+      console.log(state);
       return {
         ...state,
-        ...action.user.data,
-        user: { ...action.user.data.user, supported: action.user.charity }
+        user: {
+          ...action.user,
+          supported: [...state.user.supported, action.charity]
+        }
       };
     case "LOG_OUT":
       return {};

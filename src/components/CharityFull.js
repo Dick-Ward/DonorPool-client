@@ -3,8 +3,13 @@ import { Card, CardBody, CardTitle, CardImg, Button } from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-class Charity extends React.Component {
+class CharityFull extends React.Component {
+  handleClick = event => {
+    this.props.addSupport(this.props.user, this.props.charity);
+  };
+
   render() {
+    console.log(this.props);
     const { charity } = this.props;
 
     return (
@@ -38,7 +43,9 @@ class Charity extends React.Component {
               <div>Cause: {charity.cause}</div>
             </ul>
             <div>{charity.mission}</div>
-            <Button style={{ float: "right" }}> Support {charity.name} </Button>
+            <Button onClick={this.handleClick} style={{ float: "right" }}>
+              Support {charity.name}
+            </Button>
           </CardBody>
         </Card>
       </div>
@@ -47,7 +54,8 @@ class Charity extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  supported: state.auth.user.supported
+  supported: state.auth.user.supported,
+  user: state.auth.user
 });
 
-export default connect(mapStateToProps, actions)(Charity);
+export default connect(mapStateToProps, actions)(CharityFull);
