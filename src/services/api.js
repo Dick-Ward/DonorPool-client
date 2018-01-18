@@ -37,10 +37,12 @@ const signup = (user_name, password, email, first_name, last_name) => {
 };
 
 const addSupport = (user, charity, amount) => {
-  return fetch(`${API_ROOT}/users/${user.id}/add_support/${charity.id}`, {
+  return fetch(`${API_ROOT}/users/add_support`, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
+      user_id: user.id,
+      charity_id: charity.id,
       amount
     })
   }).then(res => res.json());
@@ -68,7 +70,7 @@ export default {
     featuredUsers,
     userRelevantUpdates
   },
-  supports: {
+  support: {
     addSupport
   }
 };
