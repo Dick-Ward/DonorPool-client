@@ -5,7 +5,7 @@ const CharitySearchItem = props => {
   return (
     <div className="charityCard ">
       <Row>
-        <Col xl="1" sm="2">
+        <Col xl="1" sm="2" xs="2">
           <img
             id={props.id}
             className="searchCardImage clickable"
@@ -14,7 +14,7 @@ const CharitySearchItem = props => {
             onClick={props.handleClick}
           />
         </Col>
-        <Col>
+        <Col xs="10">
           <h3 id={props.id} className="clickable" onClick={props.handleClick}>
             {props.name}
           </h3>
@@ -22,7 +22,6 @@ const CharitySearchItem = props => {
             {props.tagline}
           </p>
         </Col>
-        <Col />
       </Row>
     </div>
   );

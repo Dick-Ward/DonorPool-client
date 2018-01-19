@@ -21,13 +21,15 @@ class DonorViewContainer extends React.Component {
         </Row>
 
         <Row>
-          <Col>
-            <DonorFeedContainer />
+          <Col xs="12" md="3">
+            <DonorFeedContainer user={this.props.user} />
           </Col>
 
-          <Col sm="6">{this.props.active}</Col>
+          <Col xs="12" md="6">
+            {this.props.active}
+          </Col>
 
-          <Col>
+          <Col xs="12" md="3">
             <RightSidebarContainer />
           </Col>
         </Row>

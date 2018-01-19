@@ -50,7 +50,10 @@ class CharityFull extends React.Component {
             </ul>
             <div>{charity.mission}</div>
             {supportedCheck.length > 0 ? null : (
-              <Button onClick={this.handleClick} style={{ float: "right" }}>
+              <Button
+                onClick={this.handleClick}
+                style={{ float: "right", marginTop: "20px" }}
+              >
                 Support {charity.name}
               </Button>
             )}
