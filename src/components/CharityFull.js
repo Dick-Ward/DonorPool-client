@@ -1,18 +1,58 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardImg, Button } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardImg,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Form,
+  InputGroupText,
+  Label,
+  Input,
+  Row,
+  Col,
+  InputGroup,
+  InputGroupAddon
+} from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class CharityFull extends React.Component {
+  state = {
+    modal: false,
+    amount: 0
+  };
   handleClick = event => {
-    this.props.addSupport(this.props.user, this.props.charity, 5);
+    this.props.addSupport(
+      this.props.user,
+      this.props.charity,
+      this.state.amount
+    );
+    this.setState({ modal: !this.state.modal });
   };
 
   handleBack = () => {
     this.props.resetSearch(this.props.supported.length > 0);
   };
 
+  toggleModal = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
+  handleChange = event => {
+    this.setState({
+      amount: event.target.value
+    });
+  };
+
   render() {
+    console.log(this.state);
     const { charity } = this.props;
     const supportedCheck = this.props.supported.filter(supportedCharity => {
       return supportedCharity.id === charity.id;
@@ -34,7 +74,7 @@ class CharityFull extends React.Component {
               {charity.name}
             </CardTitle>
 
-            <div style={{ maxHeight: "500px", overflow: "hidden" }}>
+            <div style={{ maxHeight: "400px", overflow: "hidden" }}>
               <CardImg src={charity.picture} alt={charity.name} />
             </div>
 
@@ -51,12 +91,55 @@ class CharityFull extends React.Component {
             <div>{charity.mission}</div>
             {supportedCheck.length > 0 ? null : (
               <Button
-                onClick={this.handleClick}
+                onClick={this.toggleModal}
                 style={{ float: "right", marginTop: "20px" }}
               >
                 Support {charity.name}
               </Button>
             )}
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              <ModalHeader toggle={this.toggle}>
+                Support {charity.name}
+              </ModalHeader>
+              <ModalBody>
+                By pledging your support, you are agreeing to pay the amount
+                selected upon submission. You will be charged your pledged
+                amount on the first of each month unless you change or cancel
+                your support.
+              </ModalBody>
+              <Row>
+                <Col xs="3" />
+                <Col xs="4">
+                  <Form>
+                    <Label for="donation">Donation Amount</Label>
+                    <InputGroup>
+                      <InputGroupAddon>$&nbsp; </InputGroupAddon>
+                      <Input
+                        onChange={this.handleChange}
+                        type="number"
+                        name="donation"
+                        id="donationAmount"
+                        value={this.state.amount}
+                      />
+                    </InputGroup>
+
+                    <ModalFooter>
+                      <Button color="secondary" onClick={this.toggleModal}>
+                        Cancel
+                      </Button>
+                      <Button color="secondary" onClick={this.handleClick}>
+                        Do Something
+                      </Button>
+                    </ModalFooter>
+                  </Form>
+                </Col>
+                <Col xs="3" />
+              </Row>
+            </Modal>
           </CardBody>
         </Card>
       </div>

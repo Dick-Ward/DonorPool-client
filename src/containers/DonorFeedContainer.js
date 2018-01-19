@@ -3,7 +3,6 @@ import DonorFeed from "../components/DonorFeed";
 
 class DonorFeedContainer extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div
         style={{ position: "sticky", top: "20px" }}
