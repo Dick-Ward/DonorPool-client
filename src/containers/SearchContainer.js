@@ -9,7 +9,7 @@ class SearchContainer extends React.Component {
     if (event.target.value === "" && this.props.user.supported.length !== 0) {
       this.props.updatesView();
     } else {
-      this.props.searchView(this.props.supported !== []);
+      this.props.searchView(this.props.supported.length > 0);
     }
   };
 

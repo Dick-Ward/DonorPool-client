@@ -10,7 +10,7 @@ class CharityFull extends React.Component {
   };
 
   handleBack = () => {
-    this.props.resetSearch(this.props.supported !== []);
+    this.props.resetSearch(this.props.supported.length > 0);
   };
 
   render() {

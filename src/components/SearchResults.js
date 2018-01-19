@@ -11,7 +11,7 @@ class SearchResults extends React.Component {
     });
     this.props.individualCharityView(
       individualCharity,
-      this.props.supported !== []
+      this.props.supported.length > 0
     );
   };
 

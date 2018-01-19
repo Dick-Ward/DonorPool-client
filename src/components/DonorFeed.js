@@ -11,7 +11,7 @@ class DonorFeed extends React.Component {
     });
     this.props.individualCharityView(
       individualCharity,
-      this.props.supported !== []
+      this.props.supported.length > 0
     );
   };
 
