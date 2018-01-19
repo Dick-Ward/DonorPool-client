@@ -15,7 +15,12 @@ class SearchResultsContainer extends React.Component {
             charity.mission.toLowerCase().includes(query.toLowerCase())
           );
         }));
-    return <SearchResults charities={searchedCharities} />;
+    return (
+      <SearchResults
+        doesUserSupport={this.props.doesUserSupport}
+        charities={searchedCharities}
+      />
+    );
   }
 }
 

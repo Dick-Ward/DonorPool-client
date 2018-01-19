@@ -9,7 +9,10 @@ class RightSidebarContainer extends React.Component {
     const individualCharity = this.props.charities.find(charity => {
       return charity.id === id;
     });
-    this.props.individualCharityView(individualCharity);
+    this.props.individualCharityView(
+      individualCharity,
+      this.props.supported !== []
+    );
   };
   render() {
     const { featuredUsers } = this.props;
@@ -34,7 +37,8 @@ class RightSidebarContainer extends React.Component {
 
 const mapStateToProps = state => ({
   featuredUsers: state.auth.featured,
-  charities: state.auth.charities_list
+  charities: state.auth.charities_list,
+  supported: state.auth.user.supported
 });
 
 export default connect(mapStateToProps, actions)(RightSidebarContainer);

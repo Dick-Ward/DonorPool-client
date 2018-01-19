@@ -9,10 +9,14 @@ class SearchResults extends React.Component {
     const individualCharity = this.props.charities.find(charity => {
       return charity.id === id;
     });
-    this.props.individualCharityView(individualCharity);
+    this.props.individualCharityView(
+      individualCharity,
+      this.props.supported !== []
+    );
   };
 
   render() {
+    console.log(this.props);
     const { charities } = this.props;
 
     const charityMap = charities.map(charity => {
@@ -31,7 +35,7 @@ class SearchResults extends React.Component {
 
     return (
       <div>
-        {this.props.supported.length > 1 ? (
+        {this.props.doesUserSupport ? (
           <button onClick={this.props.resetSearch}>Back</button>
         ) : null}
         {charityMap}

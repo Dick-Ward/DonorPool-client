@@ -55,20 +55,20 @@ export const handleSearch = searchQuery => dispatch => {
   dispatch({ type: HANDLE_SEARCH, searchQuery });
 };
 
-export const resetSearch = () => dispatch => {
-  dispatch({ type: RESET_SEARCH });
+export const resetSearch = supports => dispatch => {
+  dispatch({ type: RESET_SEARCH, supports });
 };
 
-export const searchView = () => dispatch => {
-  dispatch({ type: SEARCH_VIEW });
+export const searchView = supports => dispatch => {
+  dispatch({ type: SEARCH_VIEW, supports });
 };
 
 export const updatesView = () => dispatch => {
   dispatch({ type: UPDATES_VIEW });
 };
 
-export const individualCharityView = charity => dispatch => {
-  dispatch({ type: INDIVIDUAL_CHARITY_VIEW, charity });
+export const individualCharityView = (charity, supports) => dispatch => {
+  dispatch({ type: INDIVIDUAL_CHARITY_VIEW, charity, supports });
 };
 
 export const addSupport = (user, charity, pledge) => dispatch => {

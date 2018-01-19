@@ -39,7 +39,6 @@ class Signup extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
-    console.log(this.state.lastName);
     return (
       <Container>
         <h3>Sign Up</h3>

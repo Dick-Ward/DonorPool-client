@@ -9,17 +9,20 @@ class CharityFull extends React.Component {
     this.props.updatesView();
   };
 
+  handleBack = () => {
+    this.props.resetSearch(this.props.supported !== []);
+  };
+
   render() {
     const { charity } = this.props;
-
     const supportedCheck = this.props.supported.filter(supportedCharity => {
       return supportedCharity.id === charity.id;
     });
 
     return (
       <div>
-        {this.props.supported.length > 1 ? (
-          <button onClick={this.props.resetSearch}>Back</button>
+        {this.props.doesUserSupport ? (
+          <button onClick={this.handleBack}>Back</button>
         ) : null}
         <Card style={{ margin: "5px" }}>
           <CardBody>

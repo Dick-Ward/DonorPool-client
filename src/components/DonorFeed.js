@@ -9,7 +9,10 @@ class DonorFeed extends React.Component {
     const individualCharity = this.props.charityList.find(charity => {
       return charity.id === id;
     });
-    this.props.individualCharityView(individualCharity);
+    this.props.individualCharityView(
+      individualCharity,
+      this.props.supported !== []
+    );
   };
 
   render() {
@@ -37,7 +40,8 @@ class DonorFeed extends React.Component {
 
 const mapStateToProps = state => ({
   charities: state.auth.user.supported,
-  charityList: state.auth.charities_list
+  charityList: state.auth.charities_list,
+  supported: state.auth.user.supported
 });
 
 export default connect(mapStateToProps, actions)(DonorFeed);

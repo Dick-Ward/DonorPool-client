@@ -9,7 +9,7 @@ class SearchContainer extends React.Component {
     if (event.target.value === "" && this.props.user.supported.length !== 0) {
       this.props.updatesView();
     } else {
-      this.props.searchView();
+      this.props.searchView(this.props.supported !== []);
     }
   };
 
@@ -25,7 +25,8 @@ class SearchContainer extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  searchQuery: state.search.searchQuery
+  searchQuery: state.search.searchQuery,
+  supported: state.auth.user.supported
 });
 
 export default connect(mapStateToProps, actions)(SearchContainer);

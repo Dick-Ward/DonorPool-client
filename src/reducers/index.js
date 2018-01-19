@@ -1,7 +1,7 @@
 import React from "react";
 import { combineReducers } from "redux";
 import SearchResultsContainer from "../containers/SearchResultsContainer";
-import CharityFeedContainer from "../containers/CharityFeedContainer";
+import CharityFeed from "../components/CharityFeed";
 import CharityFull from "../components/CharityFull";
 
 const authReducer = (state = {}, action) => {
@@ -47,13 +47,30 @@ const activeViewReducer = (
 ) => {
   switch (action.type) {
     case "SEARCH_VIEW":
-      return { ...state, donorFeed: <SearchResultsContainer /> };
+      return {
+        ...state,
+        donorFeed: <SearchResultsContainer doesUserSupport={action.supports} />
+      };
     case "UPDATES_VIEW":
-      return { ...state, donorFeed: <CharityFeedContainer /> };
+      return {
+        ...state,
+        donorFeed: <CharityFeed />
+      };
     case "INDIVIDUAL_CHARITY_VIEW":
-      return { ...state, donorFeed: <CharityFull charity={action.charity} /> };
+      return {
+        ...state,
+        donorFeed: (
+          <CharityFull
+            doesUserSupport={action.supports}
+            charity={action.charity}
+          />
+        )
+      };
     case "RESET_SEARCH":
-      return { ...state, donorFeed: <CharityFeedContainer /> };
+      return {
+        ...state,
+        donorFeed: <CharityFeed />
+      };
     default:
       return state;
   }
