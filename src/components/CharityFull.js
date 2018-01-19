@@ -6,7 +6,6 @@ import * as actions from "../actions";
 class CharityFull extends React.Component {
   handleClick = event => {
     this.props.addSupport(this.props.user, this.props.charity, 5);
-    this.props.updatesView();
   };
 
   handleBack = () => {

@@ -9,7 +9,8 @@ import {
   INDIVIDUAL_CHARITY_VIEW,
   RESET_SEARCH,
   ADD_SUPPORT,
-  ADD_PLEDGE
+  ADD_PLEDGE,
+  ADD_UPDATES
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -73,7 +74,22 @@ export const individualCharityView = (charity, supports) => dispatch => {
 
 export const addSupport = (user, charity, pledge) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.support.addSupport(user, charity, pledge);
-  dispatch({ type: ADD_SUPPORT, user, charity, pledge });
-  dispatch({ type: ADD_PLEDGE, charity, pledge });
+  api.support.addSupport(user, charity, pledge).then(updates => {
+    if (updates.updates) {
+      updates.updates.forEach(updateToAdd => {
+        dispatch({ type: ADD_UPDATES, updateToAdd });
+      });
+    }
+  });
+
+  dispatch({
+    type: ADD_SUPPORT,
+    charity
+  });
+  dispatch({
+    type: ADD_PLEDGE,
+    charity,
+    pledge
+  });
+  dispatch({ type: UPDATES_VIEW });
 };

@@ -16,7 +16,7 @@ const authReducer = (state = {}, action) => {
       return {
         ...state,
         user: {
-          ...action.user,
+          ...state.user,
           supported: [...state.user.supported, action.charity]
         }
       };
@@ -25,6 +25,13 @@ const authReducer = (state = {}, action) => {
       return state;
     case "LOG_OUT":
       return {};
+    case "ADD_UPDATES":
+      console.log(action);
+      return {
+        ...state,
+        relevant_updates: [...state.relevant_updates, action.updateToAdd]
+      };
+
     default:
       return state;
   }

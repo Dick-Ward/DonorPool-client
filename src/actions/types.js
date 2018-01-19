@@ -12,3 +12,4 @@ export const INDIVIDUAL_CHARITY_VIEW = "INDIVIDUAL_CHARITY_VIEW";
 export const RESET_SEARCH = "RESET_SEARCH";
 export const ADD_SUPPORT = "ADD_SUPPORT";
 export const ADD_PLEDGE = "ADD_PLEDGE";
+export const ADD_UPDATES = "ADD_UPDATES";

@@ -41,6 +41,7 @@ class CharityFeed extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  state: state,
   currentUserId: state.auth.user.id,
   updates: state.auth.relevant_updates,
   charities: state.auth.charities_list,
