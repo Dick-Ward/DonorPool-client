@@ -13,7 +13,6 @@ class SearchResults extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     const { charities } = this.props;
 
     const charityMap = charities.map(charity => {
