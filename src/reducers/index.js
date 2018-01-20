@@ -26,7 +26,6 @@ const authReducer = (state = {}, action) => {
     case "LOG_OUT":
       return {};
     case "ADD_UPDATES":
-      console.log(action);
       return {
         ...state,
         relevant_updates: [...state.relevant_updates, action.updateToAdd]

@@ -10,7 +10,6 @@ import {
   ModalBody,
   ModalFooter,
   Form,
-  InputGroupText,
   Label,
   Input,
   Row,
@@ -52,7 +51,6 @@ class CharityFull extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     const { charity } = this.props;
     const supportedCheck = this.props.supported.filter(supportedCharity => {
       return supportedCharity.id === charity.id;
@@ -132,7 +130,7 @@ class CharityFull extends React.Component {
                         Cancel
                       </Button>
                       <Button color="secondary" onClick={this.handleClick}>
-                        Do Something
+                        Submit
                       </Button>
                     </ModalFooter>
                   </Form>
