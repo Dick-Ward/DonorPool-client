@@ -68,6 +68,11 @@ body {
   max-height: 50px;
   align: left;
 }
+.donationCardImage {
+  max-height: 50px;
+  align: left;
+  margin-right: 20px;
+}
 
 .sideContainer {
   outline: solid;

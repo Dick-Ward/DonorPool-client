@@ -11,7 +11,8 @@ import {
   ADD_SUPPORT,
   ADD_PLEDGE,
   ADD_UPDATES,
-  CLEAR_SEARCH
+  CLEAR_SEARCH,
+  CHANGE_PLEDGE
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -86,7 +87,6 @@ export const addSupport = (user, charity, pledge) => dispatch => {
       });
     }
   });
-
   dispatch({
     type: ADD_SUPPORT,
     charity
@@ -97,4 +97,14 @@ export const addSupport = (user, charity, pledge) => dispatch => {
     pledge
   });
   dispatch({ type: UPDATES_VIEW });
+};
+
+export const changePledge = (id, donation, charity) => dispatch => {
+  dispatch({ type: ASYNC_START });
+  api.support.changeSupport(id, donation).then(data => console.log(data));
+  dispatch({
+    type: CHANGE_PLEDGE,
+    charity,
+    donation
+  });
 };
