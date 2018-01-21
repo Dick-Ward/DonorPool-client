@@ -1,5 +1,6 @@
 import React from "react";
 import DonorFeed from "../components/DonorFeed";
+import { Button } from "reactstrap";
 
 class DonorFeedContainer extends React.Component {
   render() {
@@ -15,6 +16,9 @@ class DonorFeedContainer extends React.Component {
           </div>
         ) : null}
         <DonorFeed />
+        {this.props.user.supported.length === 0 ? null : (
+          <Button> Edit Donations </Button>
+        )}
       </div>
     );
   }

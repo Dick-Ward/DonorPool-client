@@ -14,13 +14,24 @@ import {
 } from "reactstrap";
 
 class Navigation extends React.Component {
+  handleClick = () => {
+    if (this.props.user.supported.length !== 0) {
+      this.props.updatesView();
+    } else {
+      this.props.searchView();
+      this.props.handleSearch("");
+    }
+  };
+
   handleLogout = () => {
     this.props.logout(this.props.history);
   };
   render() {
     return (
       <Navbar light>
-        <NavbarBrand>DonorPool</NavbarBrand>
+        <NavbarBrand onClick={this.handleClick} className="clickable">
+          DonorPool
+        </NavbarBrand>
         <Nav className="ml-auto" navbar>
           {!!this.props.user ? (
             <UncontrolledDropdown nav>
@@ -48,7 +59,8 @@ class Navigation extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  searchQuery: state.search.searchQuery
 });
 
 export default withRouter(connect(mapStateToProps, actions)(Navigation));

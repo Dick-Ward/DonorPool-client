@@ -42,6 +42,8 @@ const searchReducer = (state = { searchQuery: "" }, action) => {
       return { ...state, searchQuery: action.searchQuery };
     case "RESET_SEARCH":
       return { ...state, searchQuery: "" };
+    case "CLEAR_SEARCH":
+      return { ...state, searchQuery: "" };
     default:
       return state;
   }
