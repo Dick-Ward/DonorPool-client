@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 import SearchResultsContainer from "../containers/SearchResultsContainer";
 import CharityFeed from "../components/CharityFeed";
 import CharityFull from "../components/CharityFull";
+import ModifyDonationsContainer from "../containers/ModifyDonationsContainer";
 
 const authReducer = (state = {}, action) => {
   switch (action.type) {
@@ -69,6 +70,11 @@ const activeViewReducer = (
       return {
         ...state,
         donorFeed: <CharityFeed />
+      };
+    case "MODIFY_DONATIONS_VIEW":
+      return {
+        ...state,
+        donorFeed: <ModifyDonationsContainer />
       };
     case "INDIVIDUAL_CHARITY_VIEW":
       return {

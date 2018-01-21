@@ -5,7 +5,7 @@ import * as actions from "../actions";
 
 class ModifyDonationsContainer extends React.Component {
   handleClick = event => {
-    event.preventDefault();
+    this.props.updatesView();
   };
   render() {
     const { charities } = this.props;
@@ -27,7 +27,12 @@ class ModifyDonationsContainer extends React.Component {
       );
     });
 
-    return <div>{charityList}</div>;
+    return (
+      <div>
+        <button onClick={this.handleClick}>Back</button>
+        {charityList}
+      </div>
+    );
   }
 }
 

@@ -27,8 +27,7 @@ class DonorViewContainer extends React.Component {
           </Col>
 
           <Col xs="12" md="6">
-            <ModifyDonationsContainer />
-            {/* {this.props.active} */}
+            {this.props.active}
           </Col>
 
           <Col xs="12" md="3">

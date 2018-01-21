@@ -15,3 +15,4 @@ export const ADD_PLEDGE = "ADD_PLEDGE";
 export const ADD_UPDATES = "ADD_UPDATES";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 export const CHANGE_PLEDGE = "CHANGE_PLEDGE";
+export const MODIFY_DONATIONS_VIEW = "MODIFY_DONATIONS_VIEW";

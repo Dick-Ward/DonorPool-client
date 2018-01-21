@@ -37,7 +37,7 @@ class Donation extends React.Component {
 
   render() {
     return (
-      <Card style={{ marginBottom: "5px" }}>
+      <Card style={{ margin: "5px" }}>
         <CardBody>
           <CardTitle>
             <img

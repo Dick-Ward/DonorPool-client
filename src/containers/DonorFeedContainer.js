@@ -1,8 +1,13 @@
 import React from "react";
 import DonorFeed from "../components/DonorFeed";
 import { Button } from "reactstrap";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class DonorFeedContainer extends React.Component {
+  handleClick = event => {
+    this.props.modifyDonationsView();
+  };
   render() {
     return (
       <div
@@ -17,11 +22,11 @@ class DonorFeedContainer extends React.Component {
         ) : null}
         <DonorFeed />
         {this.props.user.supported.length === 0 ? null : (
-          <Button> Edit Donations </Button>
+          <Button onClick={this.handleClick}> Edit Donations </Button>
         )}
       </div>
     );
   }
 }
 
-export default DonorFeedContainer;
+export default connect(null, actions)(DonorFeedContainer);
