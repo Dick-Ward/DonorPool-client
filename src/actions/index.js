@@ -101,12 +101,11 @@ export const addSupport = (user, charity, pledge) => dispatch => {
 
 export const changePledge = (id, donation, charity, user_id) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.support.changeSupport(id, donation, user_id).then(data => {
-    console.log(data);
-    // dispatch({
-    //   type: CHANGE_PLEDGE,
-    //   charity,
-    //   donation
-    // });
+  api.support.changeSupport(id, donation, user_id);
+
+  dispatch({
+    type: CHANGE_PLEDGE,
+    charity,
+    donation
   });
 };
