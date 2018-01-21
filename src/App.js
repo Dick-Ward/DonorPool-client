@@ -10,7 +10,7 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    // console.log("State is", this.props.state);
+    console.log("State is", this.props.state);
     return (
       <div>
         <Navigation />

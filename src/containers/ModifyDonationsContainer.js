@@ -8,7 +8,6 @@ class ModifyDonationsContainer extends React.Component {
     event.preventDefault();
   };
   render() {
-    console.log(this.props.state);
     const { charities } = this.props;
     const alphabeticalCharities = charities.sort((char, char2) => {
       return char.name > char2.name;
@@ -22,6 +21,7 @@ class ModifyDonationsContainer extends React.Component {
           pledge={charity.pledge}
           tagline={charity.tagline}
           supportId={charity.support_id}
+          userId={this.props.user.id}
           charity={charity}
         />
       );

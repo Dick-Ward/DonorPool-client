@@ -31,8 +31,11 @@ const authReducer = (state = {}, action) => {
         relevant_updates: [...state.relevant_updates, action.updateToAdd]
       };
     case "CHANGE_PLEDGE":
-      action.charity.pledge = action.donation;
-      return state;
+      console.log(action);
+      return {
+        ...state,
+        user: { ...state.user, supported: [action] }
+      };
     default:
       return state;
   }

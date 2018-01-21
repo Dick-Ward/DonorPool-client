@@ -30,12 +30,12 @@ class Donation extends React.Component {
     this.props.changePledge(
       this.props.supportId,
       parseInt(this.state.pledge, 10),
-      this.props.charity
+      this.props.charity,
+      this.props.userId
     );
   };
 
   render() {
-    console.log(this.props);
     return (
       <Card style={{ marginBottom: "5px" }}>
         <CardBody>
@@ -49,7 +49,7 @@ class Donation extends React.Component {
           </CardTitle>
           <CardSubtitle>Goal: {this.props.tagline}</CardSubtitle>
           <br />
-          <Form>
+          <Form onSubmit={this.handleClick}>
             <Label for="donation">Donation Amount</Label>
 
             <InputGroup>
@@ -61,7 +61,7 @@ class Donation extends React.Component {
                 id="donationAmount"
                 value={this.state.pledge}
               />
-              <Button onClick={this.handleClick}> Change Pledge </Button>
+              <Button> Change Pledge </Button>
             </InputGroup>
           </Form>
         </CardBody>
