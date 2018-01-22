@@ -27,12 +27,17 @@ class Donation extends React.Component {
 
   handleClick = event => {
     event.preventDefault();
-    this.props.changePledge(
-      this.props.supportId,
-      parseInt(this.state.pledge, 10),
-      this.props.charity,
-      this.props.userId
-    );
+    if (this.state.pledge <= 0) {
+      this.props.handleError("Donation must be greater than zero.");
+    } else {
+      this.props.changePledge(
+        this.props.supportId,
+        parseInt(this.state.pledge, 10),
+        this.props.charity,
+        this.props.userId
+      );
+      this.props.handleError(null);
+    }
   };
 
   render() {
@@ -49,6 +54,7 @@ class Donation extends React.Component {
           </CardTitle>
           <CardSubtitle>Goal: {this.props.tagline}</CardSubtitle>
           <br />
+
           <Form onSubmit={this.handleClick}>
             <Label for="donation">Donation Amount</Label>
 

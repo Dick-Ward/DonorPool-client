@@ -2,6 +2,8 @@ import React from "react";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import { Button } from "reactstrap";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class SplashPageContainer extends React.Component {
   state = {
@@ -10,6 +12,7 @@ class SplashPageContainer extends React.Component {
   handleClick = event => {
     if (this.state.active != null) {
       this.setState({ active: null });
+      this.props.handleError(null);
     } else {
       this.setState({ active: event.target.value });
     }
@@ -40,4 +43,4 @@ class SplashPageContainer extends React.Component {
   }
 }
 
-export default SplashPageContainer;
+export default connect(null, actions)(SplashPageContainer);

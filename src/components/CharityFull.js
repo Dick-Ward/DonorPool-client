@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Alert,
   Card,
   CardBody,
   CardTitle,
@@ -27,12 +28,16 @@ class CharityFull extends React.Component {
   };
   handleClick = event => {
     event.preventDefault();
-    this.props.addSupport(
-      this.props.user,
-      this.props.charity,
-      this.state.amount
-    );
-    this.setState({ modal: !this.state.modal });
+    if (this.state.amount <= 0) {
+      this.props.handleError("Donation must be greater than zero.");
+    } else {
+      this.props.addSupport(
+        this.props.user,
+        this.props.charity,
+        parseInt(this.state.amount, 10)
+      );
+      this.setState({ modal: !this.state.modal });
+    }
   };
 
   handleBack = () => {
@@ -110,6 +115,9 @@ class CharityFull extends React.Component {
                 amount on the first of each month unless you change or cancel
                 your support.
               </ModalBody>
+              {this.props.error ? (
+                <Alert color="danger">{this.props.error}</Alert>
+              ) : null}
               <Row>
                 <Col xs="3" />
                 <Col xs="4">
@@ -148,7 +156,8 @@ class CharityFull extends React.Component {
 
 const mapStateToProps = state => ({
   supported: state.auth.user.supported,
-  user: state.auth.user
+  user: state.auth.user,
+  error: state.auth.error
 });
 
 export default connect(mapStateToProps, actions)(CharityFull);

@@ -2,7 +2,6 @@ import React from "react";
 import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
 
 const Search = props => {
-  console.log(props);
   return (
     <Form onSubmit={props.handleSubmit}>
       <FormGroup>

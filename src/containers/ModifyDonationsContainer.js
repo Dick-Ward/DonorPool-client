@@ -2,6 +2,7 @@ import React from "react";
 import Donation from "../components/Donation";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import { Alert } from "reactstrap";
 
 class ModifyDonationsContainer extends React.Component {
   handleClick = event => {
@@ -30,6 +31,12 @@ class ModifyDonationsContainer extends React.Component {
     return (
       <div>
         <button onClick={this.handleClick}>Back</button>
+        {this.props.error ? (
+          <div>
+            <br />
+            <Alert color="danger">{this.props.error}</Alert>
+          </div>
+        ) : null}
         {charityList}
       </div>
     );
@@ -38,7 +45,8 @@ class ModifyDonationsContainer extends React.Component {
 
 const mapStateToProps = state => ({
   charities: state.auth.user.supported,
-  user: state.auth.user
+  user: state.auth.user,
+  error: state.auth.error
 });
 
 export default connect(mapStateToProps, actions)(ModifyDonationsContainer);
