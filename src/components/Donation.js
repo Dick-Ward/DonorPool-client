@@ -61,7 +61,7 @@ class Donation extends React.Component {
                 id="donationAmount"
                 value={this.state.pledge}
               />
-              <Button> Change Pledge </Button>
+              <Button>Confirm Change</Button>
             </InputGroup>
           </Form>
         </CardBody>
