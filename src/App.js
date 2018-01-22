@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import { connect } from "react-redux";
 import * as actions from "./actions";
 import SplashPageContainer from "./containers/SplashPageContainer";
+import CharityManagerViewContainer from "./containers/CharityManagerViewContainer";
 
 import "./App.css";
 
@@ -14,14 +15,22 @@ class App extends Component {
     return (
       <div>
         <Navigation />
-        {this.props.loggedIn ? (
+        {this.props.loggedIn && this.props.charityManager ? (
           <Switch>
-            <Route exact path="/" component={DonorViewContainer} />
+            <Route exact path="/" component={CharityManagerViewContainer} />
             <Route exact path="/login" component={SplashPageContainer} />
           </Switch>
         ) : (
           <SplashPageContainer />
         )}
+        {/* {this.props.loggedIn ? (
+          <Switch>
+            <Route exact path="/" component={DonorViewContainer} />
+            <Route exact path="/login" component={SplashPageContainer} />
+          </Switch>
+          ) : (
+          <SplashPageContainer />
+        )} */}
       </div>
     );
   }
@@ -35,6 +44,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   loggedIn: !!state.auth.user,
+  charityManager: !!state.auth.charity_manager,
   state: state
 });
 
