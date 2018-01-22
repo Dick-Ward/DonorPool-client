@@ -26,6 +26,7 @@ class Navigation extends React.Component {
   handleLogout = () => {
     this.props.logout(this.props.history);
   };
+
   render() {
     return (
       <Navbar light>
@@ -40,8 +41,13 @@ class Navigation extends React.Component {
                 My Account
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem>My Donations</DropdownItem>
-                <DropdownItem>My Donation History</DropdownItem>
+                <DropdownItem
+                  onClick={() => {
+                    this.props.modifyDonationsView();
+                  }}
+                >
+                  My Donations
+                </DropdownItem>
                 <DropdownItem>My Preferences</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem onClick={this.handleLogout}>

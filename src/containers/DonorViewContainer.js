@@ -5,7 +5,6 @@ import RightSidebarContainer from "./RightSidebarContainer";
 import SearchContainer from "./SearchContainer";
 import { connect } from "react-redux";
 import * as actions from "../actions";
-import ModifyDonationsContainer from "./ModifyDonationsContainer";
 
 class DonorViewContainer extends React.Component {
   render() {

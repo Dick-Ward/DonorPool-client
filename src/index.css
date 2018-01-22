@@ -30,8 +30,8 @@ body {
 
 .cardImage {
   float: left;
-  max-height: 36px;
-  max-width: 36px;
+  max-height: 40px;
+  max-width: 40px;
   padding-top: 2px;
   padding-left: 2px;
 }
@@ -55,10 +55,10 @@ body {
 
 .searchCardImage {
   float: left;
-  max-height: 50px;
-  max-width: 50px;
+  max-height: 40px;
+  max-width: 40px;
   margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .fullCardImage {

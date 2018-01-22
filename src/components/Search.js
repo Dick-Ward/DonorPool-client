@@ -13,6 +13,7 @@ const Search = props => {
           id="search"
           placeholder="Search..."
           value={props.searchQuery}
+          onSubmit={props.handleSubmit}
         />
         <FormText color="muted">
           Search matches by title, cause, and mission statement.
