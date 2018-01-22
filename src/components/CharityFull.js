@@ -26,6 +26,7 @@ class CharityFull extends React.Component {
     amount: 0
   };
   handleClick = event => {
+    event.preventDefault();
     this.props.addSupport(
       this.props.user,
       this.props.charity,
@@ -112,7 +113,7 @@ class CharityFull extends React.Component {
               <Row>
                 <Col xs="3" />
                 <Col xs="4">
-                  <Form>
+                  <Form onSubmit={this.handleClick}>
                     <Label for="donation">Donation Amount</Label>
                     <InputGroup>
                       <InputGroupAddon>$&nbsp; </InputGroupAddon>
