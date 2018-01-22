@@ -4,9 +4,11 @@ import { withRouter } from "react-router-dom";
 import * as actions from "../actions";
 
 import {
+  Alert,
   Button,
   Form,
   FormGroup,
+  FormFeedback,
   Label,
   Input,
   Container,
@@ -21,28 +23,45 @@ class Signup extends React.Component {
     passwordConfirm: "",
     email: "",
     firstName: "",
-    lastName: ""
+    lastName: "",
+    error: null
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.signup(
-      this.state.username,
-      this.state.password,
-      this.state.email,
-      this.state.firstName,
-      this.state.lastName,
-      this.props.history
-    );
+    if (
+      this.state.username === "" ||
+      this.state.password === "" ||
+      this.state.email === "" ||
+      this.state.firstName === "" ||
+      this.state.lastName === ""
+    ) {
+      this.props.handleError("Make sure you fill out every part of the form.");
+    } else if (this.state.password !== this.state.passwordConfirm) {
+      this.props.handleError("Passwords do not match.");
+    } else {
+      this.props.signup(
+        this.state.username,
+        this.state.password,
+        this.state.email,
+        this.state.firstName,
+        this.state.lastName,
+        this.props.history
+      );
+    }
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
   render() {
+    const passwordValid = this.state.password === this.state.passwordConfirm;
     return (
       <Container>
         <h3>Sign Up</h3>
-
+        {this.props.error ? (
+          <Alert color="danger">{this.props.error}</Alert>
+        ) : null}
         <Form onSubmit={this.handleSubmit}>
           <Row>
             <Col>
@@ -88,7 +107,7 @@ class Signup extends React.Component {
             </Col>
             <Col>
               <FormGroup>
-                <Label for="signupPasswordConfirm">Email:</Label>
+                <Label for="signupEmail">Email:</Label>
                 <Input
                   onChange={this.handleChange}
                   type="email"
@@ -124,7 +143,9 @@ class Signup extends React.Component {
                   id="signupPasswordConfirm"
                   placeholder="Confirm Password"
                   maxLength="50"
+                  valid={passwordValid}
                 />
+                <FormFeedback>Passwords must match</FormFeedback>
               </FormGroup>
             </Col>
           </Row>
@@ -135,4 +156,8 @@ class Signup extends React.Component {
   }
 }
 
-export default withRouter(connect(null, actions)(Signup));
+const mapStateToProps = state => ({
+  error: state.auth.error
+});
+
+export default withRouter(connect(mapStateToProps, actions)(Signup));

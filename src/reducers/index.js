@@ -10,9 +10,12 @@ const authReducer = (state = {}, action) => {
     case "SET_CURRENT_USER":
       return {
         ...state,
+        loginError: null,
         ...action.user.data,
         user: { ...action.user.data.user, token: action.user.token }
       };
+    case "HANDLE_ERROR":
+      return { ...state, error: action.message };
     case "ADD_SUPPORT":
       return {
         ...state,

@@ -3,20 +3,33 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as actions from "../actions";
 
-import { Button, Form, FormGroup, Label, Input, Container } from "reactstrap";
+import {
+  Alert,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Container
+} from "reactstrap";
 
 class Login extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    error: null
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.login(
-      this.state.username,
-      this.state.password,
-      this.props.history
-    );
+    if (this.state.username === "" || this.state.password === "") {
+      this.props.handleError("Make sure you fill out every part of the form.");
+    } else {
+      this.props.login(
+        this.state.username,
+        this.state.password,
+        this.props.history
+      );
+    }
   };
 
   handleChange = event => {
@@ -26,6 +39,10 @@ class Login extends React.Component {
     return (
       <Container>
         <h3>Log In</h3>
+        {this.props.error ? (
+          <Alert color="danger">{this.props.error}</Alert>
+        ) : null}
+
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
             <Label for="loginUsername">Username:</Label>
@@ -53,5 +70,8 @@ class Login extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  error: state.auth.error
+});
 
-export default withRouter(connect(null, actions)(Login));
+export default withRouter(connect(mapStateToProps, actions)(Login));

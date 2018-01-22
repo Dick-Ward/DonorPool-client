@@ -13,7 +13,8 @@ import {
   ADD_UPDATES,
   CLEAR_SEARCH,
   CHANGE_PLEDGE,
-  MODIFY_DONATIONS_VIEW
+  MODIFY_DONATIONS_VIEW,
+  HANDLE_ERROR
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -26,9 +27,17 @@ export const fetchUser = () => dispatch => {
 export const login = (username, password, history) => dispatch => {
   dispatch({ type: ASYNC_START });
   api.auth.login(username, password).then(user => {
-    localStorage.setItem("token", user.token);
-    dispatch({ type: SET_CURRENT_USER, user });
-    history.push("/");
+    if (user.error) {
+      const message = user.error;
+      dispatch({ type: LOG_OUT, user });
+      dispatch({ type: HANDLE_ERROR, message });
+    } else {
+      localStorage.setItem("token", user.token);
+      const message = null;
+      dispatch({ type: SET_CURRENT_USER, user });
+      dispatch({ type: HANDLE_ERROR, message });
+      history.push("/");
+    }
   });
 };
 
@@ -43,7 +52,9 @@ export const signup = (
   dispatch({ type: ASYNC_START });
   api.auth.signup(username, password, email, firstName, lastName).then(user => {
     localStorage.setItem("token", user.token);
+    const message = null;
     dispatch({ type: SET_CURRENT_USER, user });
+    dispatch({ type: HANDLE_ERROR, message });
     history.push("/");
   });
 };
@@ -111,4 +122,8 @@ export const changePledge = (id, donation, charity, user_id) => dispatch => {
     charity,
     donation
   });
+};
+
+export const handleError = message => dispatch => {
+  dispatch({ type: HANDLE_ERROR, message });
 };
