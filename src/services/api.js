@@ -48,6 +48,17 @@ const addSupport = (user, charity, amount) => {
   }).then(res => res.json());
 };
 
+const changeSupport = (id, donation, user_id) => {
+  return fetch(`${API_ROOT}/supports/${id}`, {
+    method: "PATCH",
+    headers: headers,
+    body: JSON.stringify({
+      donation,
+      user_id
+    })
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
@@ -55,6 +66,7 @@ export default {
     getCurrentUser
   },
   support: {
-    addSupport
+    addSupport,
+    changeSupport
   }
 };

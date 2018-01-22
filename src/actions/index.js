@@ -10,7 +10,11 @@ import {
   RESET_SEARCH,
   ADD_SUPPORT,
   ADD_PLEDGE,
-  ADD_UPDATES
+  ADD_UPDATES,
+  CLEAR_SEARCH,
+  CHANGE_PLEDGE,
+  MODIFY_DONATIONS_VIEW,
+  HANDLE_ERROR
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -23,9 +27,17 @@ export const fetchUser = () => dispatch => {
 export const login = (username, password, history) => dispatch => {
   dispatch({ type: ASYNC_START });
   api.auth.login(username, password).then(user => {
-    localStorage.setItem("token", user.token);
-    dispatch({ type: SET_CURRENT_USER, user });
-    history.push("/");
+    if (user.error) {
+      const message = user.error;
+      dispatch({ type: LOG_OUT, user });
+      dispatch({ type: HANDLE_ERROR, message });
+    } else {
+      localStorage.setItem("token", user.token);
+      const message = null;
+      dispatch({ type: SET_CURRENT_USER, user });
+      dispatch({ type: HANDLE_ERROR, message });
+      history.push("/");
+    }
   });
 };
 
@@ -40,7 +52,9 @@ export const signup = (
   dispatch({ type: ASYNC_START });
   api.auth.signup(username, password, email, firstName, lastName).then(user => {
     localStorage.setItem("token", user.token);
+    const message = null;
     dispatch({ type: SET_CURRENT_USER, user });
+    dispatch({ type: HANDLE_ERROR, message });
     history.push("/");
   });
 };
@@ -60,12 +74,19 @@ export const resetSearch = supports => dispatch => {
   dispatch({ type: RESET_SEARCH, supports });
 };
 
+export const clearSearch = supports => dispatch => {
+  dispatch({ type: CLEAR_SEARCH });
+};
+
 export const searchView = supports => dispatch => {
   dispatch({ type: SEARCH_VIEW, supports });
 };
 
 export const updatesView = () => dispatch => {
   dispatch({ type: UPDATES_VIEW });
+};
+export const modifyDonationsView = () => dispatch => {
+  dispatch({ type: MODIFY_DONATIONS_VIEW });
 };
 
 export const individualCharityView = (charity, supports) => dispatch => {
@@ -81,7 +102,6 @@ export const addSupport = (user, charity, pledge) => dispatch => {
       });
     }
   });
-
   dispatch({
     type: ADD_SUPPORT,
     charity
@@ -92,4 +112,18 @@ export const addSupport = (user, charity, pledge) => dispatch => {
     pledge
   });
   dispatch({ type: UPDATES_VIEW });
+};
+
+export const changePledge = (id, donation, charity, user_id) => dispatch => {
+  dispatch({ type: ASYNC_START });
+  api.support.changeSupport(id, donation, user_id);
+  dispatch({
+    type: CHANGE_PLEDGE,
+    charity,
+    donation
+  });
+};
+
+export const handleError = message => dispatch => {
+  dispatch({ type: HANDLE_ERROR, message });
 };

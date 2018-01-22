@@ -13,11 +13,16 @@ class SearchContainer extends React.Component {
     }
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
   render() {
     return (
       <Search
         handleChange={this.handleChange}
         searchQuery={this.props.searchQuery}
+        handleSubmit={this.handleSubmit}
       />
     );
   }

@@ -3,15 +3,19 @@ import { combineReducers } from "redux";
 import SearchResultsContainer from "../containers/SearchResultsContainer";
 import CharityFeed from "../components/CharityFeed";
 import CharityFull from "../components/CharityFull";
+import ModifyDonationsContainer from "../containers/ModifyDonationsContainer";
 
 const authReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_CURRENT_USER":
       return {
         ...state,
+        loginError: null,
         ...action.user.data,
         user: { ...action.user.data.user, token: action.user.token }
       };
+    case "HANDLE_ERROR":
+      return { ...state, error: action.message };
     case "ADD_SUPPORT":
       return {
         ...state,
@@ -30,6 +34,12 @@ const authReducer = (state = {}, action) => {
         ...state,
         relevant_updates: [...state.relevant_updates, action.updateToAdd]
       };
+    case "CHANGE_PLEDGE":
+      action.charity.pledge = action.donation;
+      return {
+        ...state,
+        user: { ...state.user, supported: [...state.user.supported] }
+      };
 
     default:
       return state;
@@ -41,6 +51,8 @@ const searchReducer = (state = { searchQuery: "" }, action) => {
     case "HANDLE_SEARCH":
       return { ...state, searchQuery: action.searchQuery };
     case "RESET_SEARCH":
+      return { ...state, searchQuery: "" };
+    case "CLEAR_SEARCH":
       return { ...state, searchQuery: "" };
     default:
       return state;
@@ -61,6 +73,11 @@ const activeViewReducer = (
       return {
         ...state,
         donorFeed: <CharityFeed />
+      };
+    case "MODIFY_DONATIONS_VIEW":
+      return {
+        ...state,
+        donorFeed: <ModifyDonationsContainer />
       };
     case "INDIVIDUAL_CHARITY_VIEW":
       return {
