@@ -89,8 +89,8 @@ class CharityFull extends React.Component {
               </a>
             </div>
             <ul>
-              <div>Catgory: {charity.category}</div>
-              <div>Cause: {charity.cause}</div>
+              Featured Users Supporting {charity.name}
+              <div>Probably a cool person</div>
             </ul>
             <div>{charity.mission}</div>
             {supportedCheck.length > 0 ? null : (

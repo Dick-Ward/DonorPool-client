@@ -43,12 +43,14 @@ class CharityManagerSignup extends React.Component {
     } else if (this.state.password !== this.state.passwordConfirm) {
       this.props.handleError("Passwords do not match.");
     } else {
-      console.log(
+      this.props.signupCharity(
         this.state.username,
         this.state.password,
         this.state.charityName,
         this.state.tagline,
         this.state.URL,
+        this.state.icon,
+        this.state.banner,
         this.state.mission,
         this.props.history
       );

@@ -78,12 +78,21 @@ export const signupCharity = (
   history
 ) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.auth.signup(username, password).then(user => {
-    localStorage.setItem("token", user.token);
-    const message = null;
-    dispatch({ type: SET_CURRENT_USER, user });
-    dispatch({ type: HANDLE_ERROR, message });
-  });
+  api.auth
+    .signupCharity(
+      username,
+      password,
+      charityName,
+      tagline,
+      URL,
+      icon,
+      banner,
+      mission,
+      history
+    )
+    .then(data => {
+      console.log(data);
+    });
 };
 
 export const handleSearch = searchQuery => dispatch => {

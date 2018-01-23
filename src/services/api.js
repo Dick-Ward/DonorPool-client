@@ -36,6 +36,34 @@ const signup = (user_name, password, email, first_name, last_name) => {
   }).then(res => res.json());
 };
 
+const signupCharity = (
+  username,
+  password,
+  charityName,
+  tagline,
+  URL,
+  icon,
+  banner,
+  mission,
+  history
+) => {
+  return fetch(`${API_ROOT}/users/charity/`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      username,
+      password,
+      charityName,
+      tagline,
+      URL,
+      icon,
+      banner,
+      mission,
+      history
+    })
+  }).then(res => res.json());
+};
+
 const addSupport = (user, charity, amount) => {
   return fetch(`${API_ROOT}/supports`, {
     method: "POST",
@@ -63,7 +91,8 @@ export default {
   auth: {
     login,
     signup,
-    getCurrentUser
+    getCurrentUser,
+    signupCharity
   },
   support: {
     addSupport,
