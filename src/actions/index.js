@@ -66,6 +66,24 @@ export const logout = history => dispatch => {
   history.push("/login");
 };
 
+export const signupCharity = (
+  username,
+  password,
+  email,
+  firstName,
+  lastName,
+  history
+) => dispatch => {
+  dispatch({ type: ASYNC_START });
+  api.auth.signup(username, password, email, firstName, lastName).then(user => {
+    localStorage.setItem("token", user.token);
+    const message = null;
+    dispatch({ type: SET_CURRENT_USER, user });
+    dispatch({ type: HANDLE_ERROR, message });
+    history.push("/");
+  });
+};
+
 export const handleSearch = searchQuery => dispatch => {
   dispatch({ type: HANDLE_SEARCH, searchQuery });
 };

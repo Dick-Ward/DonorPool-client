@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import CharityManagerSignup from "../components/CharityManagerSignup";
 import { Button } from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../actions";
@@ -32,12 +33,23 @@ class SplashPageContainer extends React.Component {
             >
               Sign Up
             </Button>
+            
+            <Button
+              onClick={this.handleClick}
+              className="CharityManager"
+              value="CharityManager"
+            >
+              Sign Up as a Charity Manager
+            </Button>
           </div>
         ) : (
           <Button onClick={this.handleClick}>Back</Button>
         )}
         {this.state.active === "Login" ? <Login /> : null}
         {this.state.active === "Signup" ? <Signup /> : null}
+        {this.state.active === "CharityManager" ? (
+          <CharityManagerSignup />
+        ) : null}
       </div>
     );
   }
