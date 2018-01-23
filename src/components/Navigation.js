@@ -36,7 +36,12 @@ class Navigation extends React.Component {
         <Nav className="ml-auto" navbar>
           {!!this.props.user ? (
             <UncontrolledDropdown nav>
-              <div> Welcome {this.props.user.first_name}!</div>
+              <div>
+                Welcome{" "}
+                {this.props.user.first_name
+                  ? this.props.user.first_name
+                  : this.props.user.user_name}!
+              </div>
               <DropdownToggle nav caret>
                 My Account
               </DropdownToggle>

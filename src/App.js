@@ -11,26 +11,21 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    // console.log("State is", this.props.state);
+    console.log("State is", this.props.state);
+    const view = this.props.charityManager
+      ? CharityManagerViewContainer
+      : DonorViewContainer;
     return (
       <div>
         <Navigation />
-        {this.props.loggedIn && this.props.charityManager ? (
+        {this.props.loggedIn ? (
           <Switch>
-            <Route exact path="/" component={CharityManagerViewContainer} />
+            <Route exact path="/" component={view} />
             <Route exact path="/login" component={SplashPageContainer} />
           </Switch>
         ) : (
           <SplashPageContainer />
         )}
-        {/* {this.props.loggedIn ? (
-          <Switch>
-            <Route exact path="/" component={DonorViewContainer} />
-            <Route exact path="/login" component={SplashPageContainer} />
-          </Switch>
-          ) : (
-          <SplashPageContainer />
-        )} */}
       </div>
     );
   }

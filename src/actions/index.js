@@ -90,8 +90,12 @@ export const signupCharity = (
       mission,
       history
     )
-    .then(data => {
-      console.log(data);
+    .then(user => {
+      localStorage.setItem("token", user.token);
+      const message = null;
+      dispatch({ type: SET_CURRENT_USER, user });
+      dispatch({ type: HANDLE_ERROR, message });
+      history.push("/");
     });
 };
 
