@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 import DonorListContainer from "./DonorListContainer";
+import SideBarContainer from "./SideBarContainer";
 import CharityCard from "../../components/charitymanager/CharityCard";
 
 class CharityManagerViewContainer extends React.Component {
@@ -9,7 +10,9 @@ class CharityManagerViewContainer extends React.Component {
       <div>
         <Row>
           <Col xs="12" md="3" style={{ backgroundColor: "RGBa(0,255,0,.2)" }}>
-            <div> Create new Update / Edit Charity Info</div>
+            <div>
+              <SideBarContainer />
+            </div>
           </Col>
 
           <Col xs="12" md="6">

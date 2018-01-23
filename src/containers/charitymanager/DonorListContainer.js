@@ -30,7 +30,7 @@ class DonorListContainer extends React.Component {
         <thead>
           <tr>
             <th>Donor</th>
-            <th>Amount Donated</th>
+            <th>Amount Pledged</th>
           </tr>
         </thead>
         <tbody>
