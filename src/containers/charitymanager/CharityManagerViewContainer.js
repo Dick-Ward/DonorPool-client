@@ -1,5 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
+import DonorListContainer from "./DonorListContainer";
+import CharityCard from "../../components/charitymanager/CharityCard";
 
 class CharityManagerViewContainer extends React.Component {
   render() {
@@ -10,12 +12,16 @@ class CharityManagerViewContainer extends React.Component {
             <div> Create new Update / Edit Charity Info</div>
           </Col>
 
-          <Col xs="12" md="6" style={{ backgroundColor: "RGBa(0,0,255,.2)" }}>
-            <div> Updates / UpdateCreateForm / CharityEditForm</div>
+          <Col xs="12" md="6">
+            <div>
+              <CharityCard />
+            </div>
           </Col>
 
-          <Col xs="12" md="3" style={{ backgroundColor: "RGBa(255,0,255,.2)" }}>
-            <div> Supporter names and count </div>
+          <Col xs="12" md="3">
+            <div>
+              <DonorListContainer />
+            </div>
           </Col>
         </Row>
       </div>

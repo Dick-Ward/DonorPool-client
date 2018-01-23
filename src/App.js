@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation";
 import { connect } from "react-redux";
 import * as actions from "./actions";
 import SplashPageContainer from "./containers/SplashPageContainer";
-import CharityManagerViewContainer from "./containers/CharityManagerViewContainer";
+import CharityManagerViewContainer from "./containers/charitymanager/CharityManagerViewContainer";
 
 import "./App.css";
 
