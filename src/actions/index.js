@@ -69,18 +69,20 @@ export const logout = history => dispatch => {
 export const signupCharity = (
   username,
   password,
-  email,
-  firstName,
-  lastName,
+  charityName,
+  tagline,
+  URL,
+  icon,
+  banner,
+  mission,
   history
 ) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.auth.signup(username, password, email, firstName, lastName).then(user => {
+  api.auth.signup(username, password).then(user => {
     localStorage.setItem("token", user.token);
     const message = null;
     dispatch({ type: SET_CURRENT_USER, user });
     dispatch({ type: HANDLE_ERROR, message });
-    history.push("/");
   });
 };
 
