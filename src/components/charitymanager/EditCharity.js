@@ -35,13 +35,14 @@ class EditCharity extends React.Component {
     ) {
       this.props.handleError("Make sure you fill out every part of the form.");
     } else {
-      console.log(
+      this.props.editCharity(
         this.props.charity.id,
         this.state.charityName,
         this.state.tagline,
         this.state.URL,
         this.state.mission
       );
+      this.props.charityCard();
     }
   };
 
@@ -50,7 +51,6 @@ class EditCharity extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     const passwordValid = this.state.password === this.state.passwordConfirm;
     return (
       <Container>

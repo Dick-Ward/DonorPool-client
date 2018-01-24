@@ -183,5 +183,7 @@ export const createUpdate = (title, content, userId) => dispatch => {
 
 export const editCharity = (id, name, tagline, URL, mission) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.manager.editCharity(id, name, tagline, URL, mission);
+  api.manager
+    .editCharity(id, name, tagline, URL, mission)
+    .then(charity => dispatch({ type: EDIT_CHARITY, charity }));
 };

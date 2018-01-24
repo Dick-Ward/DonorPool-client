@@ -100,8 +100,8 @@ const addUpdate = (title, content, charityId) => {
 };
 
 const editCharity = (id, name, tagline, URL, mission) => {
-  return fetch(`${API_ROOT}/charity/${id}`, {
-    method: "POST",
+  return fetch(`${API_ROOT}/charities/${id}`, {
+    method: "PATCH",
     headers: headers,
     body: JSON.stringify({
       name,
