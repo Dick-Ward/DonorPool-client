@@ -10,22 +10,50 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 class AddUpdate extends React.Component {
+  state = {
+    title: "",
+    content: "",
+    image: ""
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.createUpdate(
+      this.state.title,
+      this.state.content,
+      this.props.charityId
+    );
+  };
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Row>
           <Col>
             <FormGroup>
               <Label for="title">Title</Label>
-              <Input type="text" name="title" id="title" placeholder="Title" />
+              <Input
+                onChange={this.handleChange}
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Title"
+              />
             </FormGroup>
           </Col>
         </Row>
         <FormGroup>
           <Label for="content">Update Content</Label>
           <Input
+            onChange={this.handleChange}
             type="textarea"
             name="content"
             id="content"
@@ -49,5 +77,8 @@ class AddUpdate extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  charityId: state.auth.management.charity.id
+});
 
-export default AddUpdate;
+export default connect(mapStateToProps, actions)(AddUpdate);

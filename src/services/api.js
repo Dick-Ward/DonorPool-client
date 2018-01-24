@@ -87,6 +87,18 @@ const changeSupport = (id, donation, user_id) => {
   }).then(res => res.json());
 };
 
+const addUpdate = (title, content, charityId) => {
+  return fetch(`${API_ROOT}/updates`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      title,
+      content,
+      charityId
+    })
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
@@ -97,5 +109,8 @@ export default {
   support: {
     addSupport,
     changeSupport
+  },
+  manager: {
+    addUpdate
   }
 };

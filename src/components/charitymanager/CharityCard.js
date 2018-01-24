@@ -2,14 +2,11 @@ import React from "react";
 import { Card, CardBody, CardTitle, CardImg } from "reactstrap";
 import { connect } from "react-redux";
 
-class CharityFull extends React.Component {
+class CharityCard extends React.Component {
   render() {
     const { charity } = this.props;
     return (
       <div>
-        {this.props.doesUserSupport ? (
-          <button onClick={this.handleBack}>Back</button>
-        ) : null}
         <Card style={{ margin: "5px" }}>
           <CardBody>
             <CardTitle>
@@ -47,4 +44,4 @@ const mapStateToProps = state => ({
   charity: state.auth.management.charity
 });
 
-export default connect(mapStateToProps)(CharityFull);
+export default connect(mapStateToProps)(CharityCard);

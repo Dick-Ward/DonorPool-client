@@ -26,21 +26,23 @@ class DonorListContainer extends React.Component {
       );
     });
     return (
-      <Table>
-        <thead>
-          <tr>
-            <th>Donor</th>
-            <th>Amount Pledged</th>
-          </tr>
-        </thead>
-        <tbody>
-          {donor}
-          <tr>
-            <td style={{ fontWeight: "bold" }}>Total:</td>
-            <td style={{ textAlign: "right" }}>${total}</td>
-          </tr>
-        </tbody>
-      </Table>
+      <div>
+        <Table>
+          <thead>
+            <tr>
+              <th>Donor</th>
+              <th>Amount Pledged</th>
+            </tr>
+          </thead>
+          <tbody>
+            {donor}
+            <tr>
+              <td style={{ fontWeight: "bold" }}>Total:</td>
+              <td style={{ textAlign: "right" }}>${total}</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
     );
   }
 }

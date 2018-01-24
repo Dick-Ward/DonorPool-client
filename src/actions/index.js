@@ -15,9 +15,10 @@ import {
   CHANGE_PLEDGE,
   MODIFY_DONATIONS_VIEW,
   HANDLE_ERROR,
-  EDIT_CHARITY,
-  ADD_UPDATE,
-  CHARITY_CARD
+  EDIT_CHARITY_VIEW,
+  ADD_UPDATE_VIEW,
+  CHARITY_CARD,
+  CREATE_UPDATE
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -165,11 +166,16 @@ export const handleError = message => dispatch => {
 };
 
 export const editCharity = () => dispatch => {
-  dispatch({ type: EDIT_CHARITY });
+  dispatch({ type: EDIT_CHARITY_VIEW });
 };
 export const addUpdate = () => dispatch => {
-  dispatch({ type: ADD_UPDATE });
+  dispatch({ type: ADD_UPDATE_VIEW });
 };
 export const charityCard = () => dispatch => {
   dispatch({ type: CHARITY_CARD });
+};
+
+export const createUpdate = (title, content, userId) => dispatch => {
+  dispatch({ type: ASYNC_START });
+  api.manager.addUpdate(title, content, userId);
 };

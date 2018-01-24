@@ -100,12 +100,12 @@ const activeViewReducer = (
         ...state,
         donorFeed: <CharityFeed />
       };
-    case "EDIT_CHARITY":
+    case "EDIT_CHARITY_VIEW":
       return {
         ...state,
         managerFeed: <EditCharity />
       };
-    case "ADD_UPDATE":
+    case "ADD_UPDATE_VIEW":
       return {
         ...state,
         managerFeed: <AddUpdate />
