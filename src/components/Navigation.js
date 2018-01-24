@@ -15,11 +15,13 @@ import {
 
 class Navigation extends React.Component {
   handleClick = () => {
-    if (this.props.user.supported.length !== 0) {
-      this.props.updatesView();
-    } else {
-      this.props.searchView();
-      this.props.handleSearch("");
+    if (this.props.user) {
+      if (this.props.user.supported.length !== 0) {
+        this.props.updatesView();
+      } else {
+        this.props.searchView();
+        this.props.handleSearch("");
+      }
     }
   };
 
@@ -31,10 +33,10 @@ class Navigation extends React.Component {
     return (
       <Navbar light>
         <NavbarBrand onClick={this.handleClick} className="clickable">
-          DonorPool
+          {!!this.props.user ? "DonorPool" : null}
         </NavbarBrand>
-        <Nav className="ml-auto" navbar>
-          {!!this.props.user ? (
+        {!!this.props.user ? (
+          <Nav className="ml-auto" navbar>
             <UncontrolledDropdown nav>
               <div>
                 Welcome{" "}
@@ -51,10 +53,10 @@ class Navigation extends React.Component {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-          ) : (
-            <div> You gotta log in!</div>
-          )}
-        </Nav>
+          </Nav>
+        ) : (
+          <div />
+        )}
       </Navbar>
     );
   }
