@@ -180,15 +180,39 @@ export const charityCard = () => dispatch => {
 };
 
 export const createUpdate = (title, content, image, charityId) => dispatch => {
+  const message = null;
+  dispatch({ type: HANDLE_ERROR, message });
   dispatch({ type: ASYNC_START });
   ReactS3.upload(image, config).then(data =>
     api.manager.addUpdate(title, content, data.location, charityId)
   );
 };
 
-export const editCharity = (id, name, tagline, URL, mission) => dispatch => {
+export const editCharity = (
+  id,
+  name,
+  tagline,
+  URL,
+  mission,
+  ic,
+  pic
+) => dispatch => {
+  const message = null;
+  dispatch({ type: HANDLE_ERROR, message });
   dispatch({ type: ASYNC_START });
-  api.manager
-    .editCharity(id, name, tagline, URL, mission)
-    .then(charity => dispatch({ type: EDIT_CHARITY, charity }));
+  ReactS3.upload(pic, config).then(picture =>
+    ReactS3.upload(ic, config).then(icon =>
+      api.manager
+        .editCharity(
+          id,
+          name,
+          tagline,
+          URL,
+          mission,
+          icon.location,
+          picture.location
+        )
+        .then(charity => dispatch({ type: EDIT_CHARITY, charity }))
+    )
+  );
 };

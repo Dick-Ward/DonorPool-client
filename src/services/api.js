@@ -100,7 +100,7 @@ const addUpdate = (title, content, picture, charityId) => {
   }).then(res => res.json());
 };
 
-const editCharity = (id, name, tagline, URL, mission) => {
+const editCharity = (id, name, tagline, URL, mission, icon, picture) => {
   return fetch(`${API_ROOT}/charities/${id}`, {
     method: "PATCH",
     headers: headers,
@@ -108,7 +108,9 @@ const editCharity = (id, name, tagline, URL, mission) => {
       name,
       tagline,
       URL,
-      mission
+      mission,
+      icon,
+      picture
     })
   }).then(res => res.json());
 };

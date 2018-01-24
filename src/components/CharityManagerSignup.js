@@ -61,6 +61,10 @@ class CharityManagerSignup extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleFile = event => {
+    this.setState({ [event.target.name]: event.target.files[0] });
+  };
+
   render() {
     const passwordValid = this.state.password === this.state.passwordConfirm;
     return (

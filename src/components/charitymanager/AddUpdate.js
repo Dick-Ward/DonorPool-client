@@ -19,7 +19,8 @@ class AddUpdate extends React.Component {
   state = {
     title: "",
     content: "",
-    image: null
+    image: null,
+    error: ""
   };
 
   handleChange = event => {
@@ -32,18 +33,29 @@ class AddUpdate extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createUpdate(
-      this.state.title,
-      this.state.content,
-      this.state.image,
-      this.props.charityId
-    );
-    this.props.charityCard();
+    if (
+      this.state.title === "" ||
+      this.state.content === "" ||
+      this.state.image === null
+    ) {
+      this.props.handleError("Make sure you fill out every part of the form.");
+    } else {
+      this.props.createUpdate(
+        this.state.title,
+        this.state.content,
+        this.state.image,
+        this.props.charityId
+      );
+      this.props.charityCard();
+    }
   };
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
+        {this.props.error ? (
+          <Alert color="danger">{this.props.error}</Alert>
+        ) : null}
         <Row>
           <Col>
             <FormGroup>
@@ -92,7 +104,8 @@ class AddUpdate extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  charityId: state.auth.management.charity.id
+  charityId: state.auth.management.charity.id,
+  error: state.auth.error
 });
 
 export default connect(mapStateToProps, actions)(AddUpdate);

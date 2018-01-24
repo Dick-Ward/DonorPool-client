@@ -40,7 +40,9 @@ class EditCharity extends React.Component {
         this.state.charityName,
         this.state.tagline,
         this.state.URL,
-        this.state.mission
+        this.state.mission,
+        this.state.icon,
+        this.state.banner
       );
       this.props.charityCard();
     }
@@ -48,6 +50,10 @@ class EditCharity extends React.Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleFile = event => {
+    this.setState({ [event.target.name]: event.target.files[0] });
   };
 
   render() {
@@ -108,7 +114,7 @@ class EditCharity extends React.Component {
               <FormGroup>
                 <Label for="icon">Charity Icon (50px by 50px)</Label>
                 <Input
-                  onChange={this.handleChange}
+                  onChange={this.handleFile}
                   type="file"
                   name="icon"
                   id="icon"
@@ -121,7 +127,7 @@ class EditCharity extends React.Component {
                   Charity Bannner Picture (700px x 400px)
                 </Label>
                 <Input
-                  onChange={this.handleChange}
+                  onChange={this.handleFile}
                   type="file"
                   name="banner"
                   id="banner"
