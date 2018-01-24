@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import ReactS3 from "react-S3";
 
 class AddUpdate extends React.Component {
   state = {
