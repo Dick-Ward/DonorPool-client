@@ -161,7 +161,7 @@ class CharityManagerSignup extends React.Component {
               <FormGroup>
                 <Label for="icon">Charity Icon (50px by 50px)</Label>
                 <Input
-                  onChange={this.handleChange}
+                  onChange={this.handleFile}
                   type="file"
                   name="icon"
                   id="icon"
@@ -171,10 +171,10 @@ class CharityManagerSignup extends React.Component {
             <Col>
               <FormGroup>
                 <Label for="banner">
-                  Charity Bannner Picture (700px x 400px)
+                  Charity Bannner Picture (700px by 400px)
                 </Label>
                 <Input
-                  onChange={this.handleChange}
+                  onChange={this.handleFile}
                   type="file"
                   name="banner"
                   id="banner"
