@@ -31,6 +31,7 @@ class AddUpdate extends React.Component {
       this.state.content,
       this.props.charityId
     );
+    this.props.charityCard();
   };
 
   render() {

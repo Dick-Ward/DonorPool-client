@@ -22,7 +22,7 @@ const CharityUpdate = props => {
         <div style={{ maxHeight: "300px", overflow: "hidden" }}>
           <CardImg src={props.picture} />
         </div>
-
+        
         <CardTitle>{props.title}</CardTitle>
         <CardText>{props.content}</CardText>
       </CardBody>
