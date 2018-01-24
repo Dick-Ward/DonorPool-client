@@ -44,7 +44,6 @@ const authReducer = (state = {}, action) => {
         user: { ...state.user, supported: [...state.user.supported] }
       };
     case "EDIT_CHARITY":
-      console.log(action);
       return {
         ...state,
         management: {

@@ -11,7 +11,7 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    console.log("State is", this.props.state);
+    // console.log("State is", this.props.state);
     const view = this.props.charityManager
       ? CharityManagerViewContainer
       : DonorViewContainer;
