@@ -46,15 +46,6 @@ class Navigation extends React.Component {
                 My Account
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem
-                  onClick={() => {
-                    this.props.modifyDonationsView();
-                  }}
-                >
-                  My Donations
-                </DropdownItem>
-                <DropdownItem>My Preferences</DropdownItem>
-                <DropdownItem divider />
                 <DropdownItem onClick={this.handleLogout}>
                   Sign Out
                 </DropdownItem>

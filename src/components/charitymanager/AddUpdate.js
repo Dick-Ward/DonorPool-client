@@ -6,14 +6,11 @@ import {
   FormGroup,
   Label,
   Input,
-  Container,
   Row,
   Col
 } from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import config from "../../services/config";
-import ReactS3 from "react-s3";
 
 class AddUpdate extends React.Component {
   state = {

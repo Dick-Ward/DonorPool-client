@@ -7,7 +7,6 @@ import {
   Button,
   Form,
   FormGroup,
-  FormFeedback,
   Label,
   Input,
   Container,
@@ -31,7 +30,9 @@ class EditCharity extends React.Component {
       this.state.charityName === "" ||
       this.state.tagline === "" ||
       this.state.URL === "" ||
-      this.state.mission === ""
+      this.state.mission === "" ||
+      this.state.icon === "" ||
+      this.state.banner === ""
     ) {
       this.props.handleError("Make sure you fill out every part of the form.");
     } else {
@@ -57,7 +58,6 @@ class EditCharity extends React.Component {
   };
 
   render() {
-    const passwordValid = this.state.password === this.state.passwordConfirm;
     return (
       <Container>
         <h3>Sign Up</h3>
@@ -162,7 +162,6 @@ class EditCharity extends React.Component {
       tagline: this.props.charity.tagline,
       URL: this.props.charity.URL,
       icon: this.props.charity.icon,
-      banner: this.props.charity.banner,
       mission: this.props.charity.mission
     });
   }

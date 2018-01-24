@@ -21,7 +21,6 @@ import {
   EDIT_CHARITY_VIEW,
   ADD_UPDATE_VIEW,
   CHARITY_CARD,
-  CREATE_UPDATE,
   EDIT_CHARITY
 } from "./types";
 
