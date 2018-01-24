@@ -19,3 +19,6 @@ export const MODIFY_DONATIONS_VIEW = "MODIFY_DONATIONS_VIEW";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const HANDLE_ERROR = "HANDLE_ERROR";
 export const SET_CHARITY_USER = "SET_CHARITY_USER";
+export const EDIT_CHARITY = "EDIT_CHARITY";
+export const ADD_UPDATE = "ADD_UPDATE";
+export const CHARITY_CARD = "CHARITY_CARD";

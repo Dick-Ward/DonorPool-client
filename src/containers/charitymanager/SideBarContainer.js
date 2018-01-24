@@ -1,14 +1,19 @@
 import React from "react";
 import { Button, Container } from "reactstrap";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+
 class SideBarContainer extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ padding: "10px" }}>
         <Container>
           Keep your information up-to date to make sure customers know that
           they're donating to a trusted source.
           <div style={{ margin: "10px" }}>
-            <Button>Edit Charity Information</Button>
+            <Button onClick={this.props.editCharity}>
+              Edit Charity Information
+            </Button>
           </div>
           <div>
             As a charity manager at DonorPool, you have the power to engage with
@@ -17,7 +22,7 @@ class SideBarContainer extends React.Component {
             a boost in donations for an upcoming project.
           </div>
           <div style={{ margin: "10px" }}>
-            <Button>Add an Update</Button>
+            <Button onClick={this.props.addUpdate}>Add an Update</Button>
           </div>
         </Container>
       </div>
@@ -25,4 +30,4 @@ class SideBarContainer extends React.Component {
   }
 }
 
-export default SideBarContainer;
+export default connect(null, actions)(SideBarContainer);

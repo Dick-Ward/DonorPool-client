@@ -1,19 +1,5 @@
 import React from "react";
-import {
-  Alert,
-  Card,
-  CardBody,
-  CardTitle,
-  CardImg,
-  Button,
-  Form,
-  Label,
-  Input,
-  Row,
-  Col,
-  InputGroup,
-  InputGroupAddon
-} from "reactstrap";
+import { Card, CardBody, CardTitle, CardImg } from "reactstrap";
 import { connect } from "react-redux";
 
 class CharityFull extends React.Component {

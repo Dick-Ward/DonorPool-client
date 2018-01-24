@@ -14,7 +14,10 @@ import {
   CLEAR_SEARCH,
   CHANGE_PLEDGE,
   MODIFY_DONATIONS_VIEW,
-  HANDLE_ERROR
+  HANDLE_ERROR,
+  EDIT_CHARITY,
+  ADD_UPDATE,
+  CHARITY_CARD
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -159,4 +162,14 @@ export const changePledge = (id, donation, charity, user_id) => dispatch => {
 
 export const handleError = message => dispatch => {
   dispatch({ type: HANDLE_ERROR, message });
+};
+
+export const editCharity = () => dispatch => {
+  dispatch({ type: EDIT_CHARITY });
+};
+export const addUpdate = () => dispatch => {
+  dispatch({ type: ADD_UPDATE });
+};
+export const charityCard = () => dispatch => {
+  dispatch({ type: CHARITY_CARD });
 };

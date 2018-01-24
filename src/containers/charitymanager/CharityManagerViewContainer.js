@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import DonorListContainer from "./DonorListContainer";
 import SideBarContainer from "./SideBarContainer";
-import CharityCard from "../../components/charitymanager/CharityCard";
+import { connect } from "react-redux";
 
 class CharityManagerViewContainer extends React.Component {
   render() {
@@ -16,9 +16,7 @@ class CharityManagerViewContainer extends React.Component {
           </Col>
 
           <Col xs="12" md="6">
-            <div>
-              <CharityCard />
-            </div>
+            <div>{this.props.active}</div>
           </Col>
 
           <Col xs="12" md="3">
@@ -31,5 +29,8 @@ class CharityManagerViewContainer extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  active: state.views.managerFeed
+});
 
-export default CharityManagerViewContainer;
+export default connect(mapStateToProps)(CharityManagerViewContainer);
