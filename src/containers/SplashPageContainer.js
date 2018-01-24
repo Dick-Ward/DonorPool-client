@@ -31,7 +31,16 @@ class SplashPageContainer extends React.Component {
             boxShadow: "5px 10px"
           }}
         >
-          <h1 className="display-3">Welcome to DonorPool</h1>
+          <h1
+            style={{
+              backgroundColor: "RGBa(255,255,255, 1)",
+              boxShadow: "2px 1px",
+              borderRadius: "50px"
+            }}
+            className="display-3"
+          >
+            Welcome to DonorPool
+          </h1>
           <p className="lead" style={{ width: "600px", margin: "auto" }}>
             We believe that charitable giving should be easy, even for those
             without a lot to give. That's why we created DonorPool, a website
