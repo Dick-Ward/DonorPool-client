@@ -80,31 +80,35 @@ export const signupCharity = (
   charityName,
   tagline,
   URL,
-  icon,
-  banner,
   mission,
+  ic,
+  pic,
   history
 ) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.auth
-    .signupCharity(
-      username,
-      password,
-      charityName,
-      tagline,
-      URL,
-      icon,
-      banner,
-      mission,
-      history
+  ReactS3.upload(pic, config).then(picture =>
+    ReactS3.upload(ic, config).then(icon =>
+      api.auth
+        .signupCharity(
+          username,
+          password,
+          charityName,
+          tagline,
+          URL,
+          mission,
+          icon.location,
+          picture.location,
+          history
+        )
+        .then(user => {
+          localStorage.setItem("token", user.token);
+          const message = null;
+          dispatch({ type: SET_CURRENT_USER, user });
+          dispatch({ type: HANDLE_ERROR, message });
+          history.push("/");
+        })
     )
-    .then(user => {
-      localStorage.setItem("token", user.token);
-      const message = null;
-      dispatch({ type: SET_CURRENT_USER, user });
-      dispatch({ type: HANDLE_ERROR, message });
-      history.push("/");
-    });
+  );
 };
 
 export const handleSearch = searchQuery => dispatch => {

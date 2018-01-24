@@ -42,9 +42,9 @@ const signupCharity = (
   charityName,
   tagline,
   URL,
-  icon,
-  banner,
   mission,
+  icon,
+  picture,
   history
 ) => {
   return fetch(`${API_ROOT}/users/charity/`, {
@@ -56,9 +56,9 @@ const signupCharity = (
       charityName,
       tagline,
       URL,
-      icon,
-      banner,
       mission,
+      icon,
+      picture,
       history
     })
   }).then(res => res.json());

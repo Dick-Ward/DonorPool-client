@@ -24,9 +24,9 @@ class CharityManagerSignup extends React.Component {
     charityName: "",
     tagline: "",
     URL: "",
+    mission: "",
     icon: "",
     banner: "",
-    mission: "",
     error: null
   };
   handleSubmit = event => {
@@ -49,9 +49,9 @@ class CharityManagerSignup extends React.Component {
         this.state.charityName,
         this.state.tagline,
         this.state.URL,
+        this.state.mission,
         this.state.icon,
         this.state.banner,
-        this.state.mission,
         this.props.history
       );
     }

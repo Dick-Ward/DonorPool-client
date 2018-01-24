@@ -5,9 +5,11 @@ import { Table } from "reactstrap";
 
 class DonorListContainer extends React.Component {
   render() {
-    const donations = this.props.supporters.map(
-      supporter => supporter.donation
-    );
+    const donations =
+      this.props.supporters.length > 0
+        ? this.props.supporters.map(supporter => supporter.donation)
+        : [0];
+
     function getSum(total, num) {
       return total + num;
     }
