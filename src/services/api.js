@@ -99,6 +99,19 @@ const addUpdate = (title, content, charityId) => {
   }).then(res => res.json());
 };
 
+const editCharity = (id, name, tagline, URL, mission) => {
+  return fetch(`${API_ROOT}/charity/${id}`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      name,
+      tagline,
+      URL,
+      mission
+    })
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
@@ -111,6 +124,7 @@ export default {
     changeSupport
   },
   manager: {
-    addUpdate
+    addUpdate,
+    editCharity
   }
 };

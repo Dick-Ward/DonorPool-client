@@ -11,7 +11,7 @@ class SideBarContainer extends React.Component {
           Keep your information up-to date to make sure customers know that
           they're donating to a trusted source.
           <div style={{ margin: "10px" }}>
-            <Button onClick={this.props.editCharity}>
+            <Button onClick={this.props.editCharityView}>
               Edit Charity Information
             </Button>
           </div>

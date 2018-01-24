@@ -36,6 +36,7 @@ class EditCharity extends React.Component {
       this.props.handleError("Make sure you fill out every part of the form.");
     } else {
       console.log(
+        this.props.charity.id,
         this.state.charityName,
         this.state.tagline,
         this.state.URL,

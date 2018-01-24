@@ -23,3 +23,4 @@ export const EDIT_CHARITY_VIEW = "EDIT_CHARITY_VIEW";
 export const ADD_UPDATE_VIEW = "ADD_UPDATE_VIEW";
 export const CHARITY_CARD = "CHARITY_CARD";
 export const CREATE_UPDATE = "CREATE_UPDATE";
+export const EDIT_CHARITY = "EDIT_CHARITY";

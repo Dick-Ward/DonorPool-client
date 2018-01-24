@@ -18,7 +18,8 @@ import {
   EDIT_CHARITY_VIEW,
   ADD_UPDATE_VIEW,
   CHARITY_CARD,
-  CREATE_UPDATE
+  CREATE_UPDATE,
+  EDIT_CHARITY
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -165,7 +166,7 @@ export const handleError = message => dispatch => {
   dispatch({ type: HANDLE_ERROR, message });
 };
 
-export const editCharity = () => dispatch => {
+export const editCharityView = () => dispatch => {
   dispatch({ type: EDIT_CHARITY_VIEW });
 };
 export const addUpdate = () => dispatch => {
@@ -178,4 +179,9 @@ export const charityCard = () => dispatch => {
 export const createUpdate = (title, content, userId) => dispatch => {
   dispatch({ type: ASYNC_START });
   api.manager.addUpdate(title, content, userId);
+};
+
+export const editCharity = (id, name, tagline, URL, mission) => dispatch => {
+  dispatch({ type: ASYNC_START });
+  api.manager.editCharity(id, name, tagline, URL, mission);
 };
