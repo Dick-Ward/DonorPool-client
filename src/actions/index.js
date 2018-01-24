@@ -1,4 +1,7 @@
 import api from "../services/api";
+import config from "../services/config";
+import ReactS3 from "react-s3";
+
 import {
   SET_CURRENT_USER,
   ASYNC_START,
@@ -176,9 +179,11 @@ export const charityCard = () => dispatch => {
   dispatch({ type: CHARITY_CARD });
 };
 
-export const createUpdate = (title, content, userId) => dispatch => {
+export const createUpdate = (title, content, image, charityId) => dispatch => {
   dispatch({ type: ASYNC_START });
-  api.manager.addUpdate(title, content, userId);
+  ReactS3.upload(image, config).then(data =>
+    api.manager.addUpdate(title, content, data.location, charityId)
+  );
 };
 
 export const editCharity = (id, name, tagline, URL, mission) => dispatch => {

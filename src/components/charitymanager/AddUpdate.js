@@ -12,17 +12,22 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import ReactS3 from "react-S3";
+import config from "../../services/config";
+import ReactS3 from "react-s3";
 
 class AddUpdate extends React.Component {
   state = {
     title: "",
     content: "",
-    image: ""
+    image: null
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleFile = event => {
+    this.setState({ image: event.target.files[0] });
   };
 
   handleSubmit = event => {
@@ -30,6 +35,7 @@ class AddUpdate extends React.Component {
     this.props.createUpdate(
       this.state.title,
       this.state.content,
+      this.state.image,
       this.props.charityId
     );
     this.props.charityCard();
@@ -66,7 +72,13 @@ class AddUpdate extends React.Component {
           <Col>
             <FormGroup>
               <Label for="image">Banner Image</Label>
-              <Input type="file" name="image" id="image" />
+              <Input
+                onChange={this.handleFile}
+                type="file"
+                name="image"
+                id="image"
+                accept="image/*"
+              />
             </FormGroup>
           </Col>
         </Row>

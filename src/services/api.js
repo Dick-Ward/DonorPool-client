@@ -87,13 +87,14 @@ const changeSupport = (id, donation, user_id) => {
   }).then(res => res.json());
 };
 
-const addUpdate = (title, content, charityId) => {
+const addUpdate = (title, content, picture, charityId) => {
   return fetch(`${API_ROOT}/updates`, {
     method: "POST",
     headers: headers,
     body: JSON.stringify({
       title,
       content,
+      picture,
       charityId
     })
   }).then(res => res.json());
