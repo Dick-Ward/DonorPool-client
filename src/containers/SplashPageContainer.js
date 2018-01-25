@@ -30,7 +30,7 @@ class SplashPageContainer extends React.Component {
             position: "absolute",
             margin: "auto",
             top: "0",
-            bottom: "300px",
+            bottom: "0",
             left: "0",
             right: "0",
             width: "900px",
