@@ -67,7 +67,12 @@ class CharityFull extends React.Component {
         {this.props.doesUserSupport ? (
           <button onClick={this.handleBack}>Back</button>
         ) : null}
-        <Card style={{ margin: "5px" }}>
+        <Card
+          style={{
+            margin: "5px",
+            boxShadow: "1px 1px 2px 1px"
+          }}
+        >
           <CardBody>
             <CardTitle>
               <img
