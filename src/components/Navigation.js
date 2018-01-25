@@ -15,11 +15,13 @@ import {
 
 class Navigation extends React.Component {
   handleClick = () => {
-    if (this.props.user.supported.length !== 0) {
-      this.props.updatesView();
-    } else {
-      this.props.searchView();
-      this.props.handleSearch("");
+    if (this.props.user) {
+      if (this.props.user.supported.length !== 0) {
+        this.props.updatesView();
+      } else {
+        this.props.searchView();
+        this.props.handleSearch("");
+      }
     }
   };
 
@@ -31,34 +33,30 @@ class Navigation extends React.Component {
     return (
       <Navbar light>
         <NavbarBrand onClick={this.handleClick} className="clickable">
-          DonorPool
+          {!!this.props.user ? "DonorPool" : null}
         </NavbarBrand>
-        <Nav className="ml-auto" navbar>
-          {!!this.props.user ? (
+        {!!this.props.user ? (
+          <Nav className="ml-auto" navbar>
             <UncontrolledDropdown nav>
-              <div> Welcome {this.props.user.first_name}!</div>
+              <div>
+                Welcome{" "}
+                {this.props.user.first_name
+                  ? this.props.user.first_name
+                  : this.props.user.user_name}!
+              </div>
               <DropdownToggle nav caret>
                 My Account
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem
-                  onClick={() => {
-                    this.props.modifyDonationsView();
-                  }}
-                >
-                  My Donations
-                </DropdownItem>
-                <DropdownItem>My Preferences</DropdownItem>
-                <DropdownItem divider />
                 <DropdownItem onClick={this.handleLogout}>
                   Sign Out
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-          ) : (
-            <div> You gotta log in!</div>
-          )}
-        </Nav>
+          </Nav>
+        ) : (
+          <div />
+        )}
       </Navbar>
     );
   }

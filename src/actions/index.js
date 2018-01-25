@@ -1,4 +1,7 @@
 import api from "../services/api";
+import config from "../services/config";
+import ReactS3 from "react-s3";
+
 import {
   SET_CURRENT_USER,
   ASYNC_START,
@@ -14,7 +17,11 @@ import {
   CLEAR_SEARCH,
   CHANGE_PLEDGE,
   MODIFY_DONATIONS_VIEW,
-  HANDLE_ERROR
+  HANDLE_ERROR,
+  EDIT_CHARITY_VIEW,
+  ADD_UPDATE_VIEW,
+  CHARITY_CARD,
+  EDIT_CHARITY
 } from "./types";
 
 export const fetchUser = () => dispatch => {
@@ -64,6 +71,43 @@ export const logout = history => dispatch => {
   localStorage.removeItem("token");
   dispatch({ type: LOG_OUT, user });
   history.push("/login");
+};
+
+export const signupCharity = (
+  username,
+  password,
+  charityName,
+  tagline,
+  URL,
+  mission,
+  ic,
+  pic,
+  history
+) => dispatch => {
+  dispatch({ type: ASYNC_START });
+  ReactS3.upload(pic, config).then(picture =>
+    ReactS3.upload(ic, config).then(icon =>
+      api.auth
+        .signupCharity(
+          username,
+          password,
+          charityName,
+          tagline,
+          URL,
+          mission,
+          icon.location,
+          picture.location,
+          history
+        )
+        .then(user => {
+          localStorage.setItem("token", user.token);
+          const message = null;
+          dispatch({ type: SET_CURRENT_USER, user });
+          dispatch({ type: HANDLE_ERROR, message });
+          history.push("/");
+        })
+    )
+  );
 };
 
 export const handleSearch = searchQuery => dispatch => {
@@ -126,4 +170,52 @@ export const changePledge = (id, donation, charity, user_id) => dispatch => {
 
 export const handleError = message => dispatch => {
   dispatch({ type: HANDLE_ERROR, message });
+};
+
+export const editCharityView = () => dispatch => {
+  dispatch({ type: EDIT_CHARITY_VIEW });
+};
+export const addUpdate = () => dispatch => {
+  dispatch({ type: ADD_UPDATE_VIEW });
+};
+export const charityCard = () => dispatch => {
+  dispatch({ type: CHARITY_CARD });
+};
+
+export const createUpdate = (title, content, image, charityId) => dispatch => {
+  const message = null;
+  dispatch({ type: HANDLE_ERROR, message });
+  dispatch({ type: ASYNC_START });
+  ReactS3.upload(image, config).then(data =>
+    api.manager.addUpdate(title, content, data.location, charityId)
+  );
+};
+
+export const editCharity = (
+  id,
+  name,
+  tagline,
+  URL,
+  mission,
+  ic,
+  pic
+) => dispatch => {
+  const message = null;
+  dispatch({ type: HANDLE_ERROR, message });
+  dispatch({ type: ASYNC_START });
+  ReactS3.upload(pic, config).then(picture =>
+    ReactS3.upload(ic, config).then(icon =>
+      api.manager
+        .editCharity(
+          id,
+          name,
+          tagline,
+          URL,
+          mission,
+          icon.location,
+          picture.location
+        )
+        .then(charity => dispatch({ type: EDIT_CHARITY, charity }))
+    )
+  );
 };

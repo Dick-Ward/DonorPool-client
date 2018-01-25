@@ -11,7 +11,7 @@ class DonorFeedContainer extends React.Component {
   render() {
     return (
       <div
-        style={{ position: "sticky", top: "20px" }}
+        style={{ position: "sticky", top: "20px", marginLeft: "15px" }}
         className="sideContainer"
       >
         <div className="categoryTitle">My Charities</div>
@@ -22,7 +22,24 @@ class DonorFeedContainer extends React.Component {
         ) : null}
         <DonorFeed />
         {this.props.user.supported.length === 0 ? null : (
-          <Button onClick={this.handleClick}> Edit Donations </Button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <Button
+              style={{
+                borderColor: "RGB(130,100,200)",
+                color: "RGB(130,100,200)",
+                backgroundColor: "white",
+                margin: "10px"
+              }}
+              onClick={this.handleClick}
+            >
+              Edit Donations
+            </Button>
+          </div>
         )}
       </div>
     );

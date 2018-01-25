@@ -84,19 +84,27 @@ class CharityFull extends React.Component {
 
             <div className="byLine">{charity.tagline}</div>
             <div style={{ float: "right" }}>
-              <a href={charity.URL} target="_blank">
+              <a
+                href={charity.URL}
+                style={{ color: "RGB(130,100,200)" }}
+                target="_blank"
+              >
                 Website
               </a>
             </div>
-            <ul>
-              <div>Catgory: {charity.category}</div>
-              <div>Cause: {charity.cause}</div>
-            </ul>
+            <br />
             <div>{charity.mission}</div>
             {supportedCheck.length > 0 ? null : (
               <Button
                 onClick={this.toggleModal}
-                style={{ float: "right", marginTop: "20px" }}
+                style={{
+                  borderColor: "RGB(130,100,200)",
+                  color: "RGB(130,100,200)",
+                  backgroundColor: "white",
+                  margin: "10px",
+                  float: "right",
+                  marginTop: "20px"
+                }}
               >
                 Support {charity.name}
               </Button>

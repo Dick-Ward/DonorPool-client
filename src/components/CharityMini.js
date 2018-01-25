@@ -9,10 +9,10 @@ const CharityMini = props => {
           <img className="cardImage" src={props.icon} alt={props.name} />
         </Col>
         <Col>
-          <div className="cardByline">${props.pledge}/mo</div>
           <div id={props.id} onClick={props.handleClick} className="clickable">
             {props.name}
           </div>
+          <div className="cardByline">${props.pledge}/mo</div>
         </Col>
       </Row>
     </div>

@@ -4,6 +4,9 @@ import SearchResultsContainer from "../containers/SearchResultsContainer";
 import CharityFeed from "../components/CharityFeed";
 import CharityFull from "../components/CharityFull";
 import ModifyDonationsContainer from "../containers/ModifyDonationsContainer";
+import CharityCard from "../components/charitymanager/CharityCard.js";
+import AddUpdate from "../components/charitymanager/AddUpdate.js";
+import EditCharity from "../components/charitymanager/EditCharity.js";
 
 const authReducer = (state = {}, action) => {
   switch (action.type) {
@@ -40,6 +43,14 @@ const authReducer = (state = {}, action) => {
         ...state,
         user: { ...state.user, supported: [...state.user.supported] }
       };
+    case "EDIT_CHARITY":
+      return {
+        ...state,
+        management: {
+          ...state.management,
+          charity: action.charity
+        }
+      };
 
     default:
       return state;
@@ -60,7 +71,10 @@ const searchReducer = (state = { searchQuery: "" }, action) => {
 };
 
 const activeViewReducer = (
-  state = { donorFeed: <SearchResultsContainer /> },
+  state = {
+    donorFeed: <SearchResultsContainer />,
+    managerFeed: <CharityCard />
+  },
   action
 ) => {
   switch (action.type) {
@@ -93,6 +107,21 @@ const activeViewReducer = (
       return {
         ...state,
         donorFeed: <CharityFeed />
+      };
+    case "EDIT_CHARITY_VIEW":
+      return {
+        ...state,
+        managerFeed: <EditCharity />
+      };
+    case "ADD_UPDATE_VIEW":
+      return {
+        ...state,
+        managerFeed: <AddUpdate />
+      };
+    case "CHARITY_CARD":
+      return {
+        ...state,
+        managerFeed: <CharityCard />
       };
     default:
       return state;

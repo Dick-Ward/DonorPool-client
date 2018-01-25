@@ -10,7 +10,12 @@ import {
 
 const CharityUpdate = props => {
   return (
-    <Card style={{ margin: "5px" }}>
+    <Card
+      style={{
+        marginBottom: "15px",
+        boxShadow: "1px 1px 2px 1px"
+      }}
+    >
       <CardBody>
         <CardSubtitle
           className="clickable"

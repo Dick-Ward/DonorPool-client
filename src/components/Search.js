@@ -7,6 +7,9 @@ const Search = props => {
       <FormGroup>
         <Label for="search">Search for a Charity</Label>
         <Input
+          style={{
+            boxShadow: "1px 1px 2px 1px"
+          }}
           onChange={props.handleChange}
           type="search"
           name="search"

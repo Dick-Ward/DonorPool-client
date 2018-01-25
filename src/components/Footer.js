@@ -13,7 +13,7 @@ const Footer = () => {
         <p
           style={{
             color: "RGB(31,31,31)",
-            backgroundColor: "RGBa(50, 50, 50, .05)",
+            backgroundColor: "RGBa(255, 255, 255, .6)",
             borderTopRightRadius: "5px",
             borderTopLeftRadius: "5px",
             borderBottomRightRadius: "5px",

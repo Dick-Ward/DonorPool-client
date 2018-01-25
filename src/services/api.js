@@ -36,6 +36,34 @@ const signup = (user_name, password, email, first_name, last_name) => {
   }).then(res => res.json());
 };
 
+const signupCharity = (
+  username,
+  password,
+  charityName,
+  tagline,
+  URL,
+  mission,
+  icon,
+  picture,
+  history
+) => {
+  return fetch(`${API_ROOT}/users/charity/`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      username,
+      password,
+      charityName,
+      tagline,
+      URL,
+      mission,
+      icon,
+      picture,
+      history
+    })
+  }).then(res => res.json());
+};
+
 const addSupport = (user, charity, amount) => {
   return fetch(`${API_ROOT}/supports`, {
     method: "POST",
@@ -59,14 +87,47 @@ const changeSupport = (id, donation, user_id) => {
   }).then(res => res.json());
 };
 
+const addUpdate = (title, content, picture, charityId) => {
+  return fetch(`${API_ROOT}/updates`, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({
+      title,
+      content,
+      picture,
+      charityId
+    })
+  }).then(res => res.json());
+};
+
+const editCharity = (id, name, tagline, URL, mission, icon, picture) => {
+  return fetch(`${API_ROOT}/charities/${id}`, {
+    method: "PATCH",
+    headers: headers,
+    body: JSON.stringify({
+      name,
+      tagline,
+      URL,
+      mission,
+      icon,
+      picture
+    })
+  }).then(res => res.json());
+};
+
 export default {
   auth: {
     login,
     signup,
-    getCurrentUser
+    getCurrentUser,
+    signupCharity
   },
   support: {
     addSupport,
     changeSupport
+  },
+  manager: {
+    addUpdate,
+    editCharity
   }
 };

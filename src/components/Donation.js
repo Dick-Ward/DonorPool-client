@@ -67,7 +67,16 @@ class Donation extends React.Component {
                 id="donationAmount"
                 value={this.state.pledge}
               />
-              <Button>Confirm Change</Button>
+              <Button
+                style={{
+                  borderColor: "RGB(130,100,200)",
+                  color: "RGB(130,100,200)",
+                  backgroundColor: "white",
+                  marginLeft: "10px"
+                }}
+              >
+                Confirm Change
+              </Button>
             </InputGroup>
           </Form>
         </CardBody>

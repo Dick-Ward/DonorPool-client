@@ -17,8 +17,8 @@ class CharityFeed extends React.Component {
 
   render() {
     const { updates } = this.props;
-    const updateSort = updates.sort(function(a, b) {
-      return Date(b.created_at) - Date(a.created_at);
+    const updateSort = updates.slice(0, 5).sort(function(a, b) {
+      return a.created_at < b.created_at;
     });
 
     const updateMap = updateSort.map(update => {
