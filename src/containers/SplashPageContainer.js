@@ -30,10 +30,10 @@ class SplashPageContainer extends React.Component {
             position: "absolute",
             margin: "auto",
             top: "0",
-            bottom: "450px",
+            bottom: "300px",
             left: "0",
             right: "0",
-            width: "700px",
+            width: "900px",
             height: "500px"
           }}
         >
@@ -47,64 +47,86 @@ class SplashPageContainer extends React.Component {
               padding: "20px"
             }}
           >
-            <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
-              <h1 className="display-3 splashHeadline">Welcome to DonorPool</h1>
+            <div
+              style={{
+                margin: "auto",
+                width: "600px",
+                backgroundColor: "RGBa(130,100,200,.7)",
+                borderRadius: "10px"
+              }}
+            >
+              <h1
+                style={{ color: "white" }}
+                className="display-3 splashHeadline"
+              >
+                Welcome to DonorPool
+              </h1>
             </div>
-            <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
-              <p className="lead" style={{ width: "550px", margin: "auto" }}>
-                We believe that charitable giving should be easy, even for those
-                without a lot to give. That's why we created DonorPool, a
-                website that allows you to give as little or as much as you want
-                to the causes you care about.
-              </p>
-            </div>
-
-            <hr className="my-2" />
             {this.state.active === null ? (
               <div>
-                <Button
-                  outline
-                  style={{
-                    borderColor: "RGB(130,100,200)",
-                    color: "RGB(150,100,200)",
-                    backgroundColor: "white",
-                    margin: "10px"
-                  }}
-                  onClick={this.handleClick}
-                  className="Login"
-                  value="Login"
-                >
-                  Log In
-                </Button>
-                <Button
-                  outline
-                  style={{
-                    borderColor: "RGB(130,100,200)",
-                    color: "RGB(130,100,200)",
-                    backgroundColor: "white",
-                    margin: "10px"
-                  }}
-                  onClick={this.handleClick}
-                  className="Signup"
-                  value="Signup"
-                >
-                  Sign Up
-                </Button>
-                <br />
-                <Button
-                  outline
-                  style={{
-                    borderColor: "RGB(130,100,200)",
-                    color: "RGB(130,100,200)",
-                    backgroundColor: "white",
-                    margin: "10px"
-                  }}
-                  onClick={this.handleClick}
-                  className="CharityManager"
-                  value="CharityManager"
-                >
-                  Sign Up as a Charity Manager
-                </Button>
+                <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
+                  <p
+                    className="lead"
+                    style={{
+                      width: "550px",
+                      margin: "auto",
+                      color: "RGBa(110,70,150, 1)"
+                    }}
+                  >
+                    We believe that charitable giving should be easy, even for
+                    those without a lot to give. That's why we created
+                    DonorPool, a website that allows you to give as little or as
+                    much as you want to the causes you care about.
+                  </p>
+                </div>
+
+                <hr className="my-2" />
+
+                <div>
+                  <Button
+                    outline
+                    style={{
+                      borderColor: "RGB(130,100,200)",
+                      color: "RGB(150,100,200)",
+                      backgroundColor: "white",
+                      margin: "10px"
+                    }}
+                    onClick={this.handleClick}
+                    className="Login"
+                    value="Login"
+                  >
+                    Log In
+                  </Button>
+                  <Button
+                    outline
+                    style={{
+                      borderColor: "RGB(130,100,200)",
+                      color: "RGB(130,100,200)",
+                      backgroundColor: "white",
+                      margin: "10px"
+                    }}
+                    onClick={this.handleClick}
+                    className="Signup"
+                    value="Signup"
+                  >
+                    Sign Up
+                  </Button>
+                  <br />
+                  <Button
+                    outline
+                    style={{
+                      borderColor: "RGB(130,100,200)",
+                      color: "RGB(130,100,200)",
+                      backgroundColor: "white",
+                      margin: "10px"
+                    }}
+                    onClick={this.handleClick}
+                    className="CharityManager"
+                    value="CharityManager"
+                  >
+                    Sign Up as a Charity Manager
+                  </Button>
+                </div>
               </div>
             ) : (
               <Button

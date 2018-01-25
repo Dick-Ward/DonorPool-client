@@ -2,6 +2,15 @@ body {
   background-image: url("city.jpeg");
 }
 
+* {
+  font-family: "Lato", sans-serif;
+}
+
+.splashHeadline {
+  font-family: "Farsan", cursive;
+  color: "white";
+}
+
 .splashBackground {
   background-image: url("city.jpeg");
   background-size: cover;
@@ -86,11 +95,4 @@ body {
   outline-color: RGBa(30, 30, 30, 0.3);
   background-color: RGBa(255, 255, 255, 0.5);
   padding-bottom: 1em;
-}
-
-.splashHeadline {
-}
-
-.splashHeadlineBackground {
-  background-image: url("crossword.png");
 }
