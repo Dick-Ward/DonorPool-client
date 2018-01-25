@@ -78,3 +78,10 @@ body {
   background-color: RGBa(25, 150, 20, 0.2);
   padding-bottom: 1em;
 }
+
+.splashHeadline {
+}
+
+.splashHeadlineBackground {
+  background-image: url("crossword.png");
+}

@@ -64,7 +64,15 @@ class Login extends React.Component {
               placeholder="Password"
             />
           </FormGroup>
-          <Button>Submit</Button>
+          <Button
+            style={{
+              color: "green",
+              backgroundColor: "white",
+              margin: "10px"
+            }}
+          >
+            Submit
+          </Button>
         </Form>
       </Container>
     );

@@ -3,7 +3,15 @@ import Login from "../components/Login";
 import Signup from "../components/Signup";
 import Footer from "../components/Footer";
 import CharityManagerSignup from "../components/CharityManagerSignup";
-import { Button, Jumbotron } from "reactstrap";
+import {
+  Button,
+  Jumbotron,
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+} from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
@@ -28,19 +36,10 @@ class SplashPageContainer extends React.Component {
             margin: "auto",
             width: "90%",
             textAlign: "center",
-            boxShadow: "5px 10px"
+            boxShadow: "1px 2px"
           }}
         >
-          <h1
-            style={{
-              backgroundColor: "RGBa(255,255,255, 1)",
-              boxShadow: "2px 1px",
-              borderRadius: "50px"
-            }}
-            className="display-3"
-          >
-            Welcome to DonorPool
-          </h1>
+          <h1 className="display-3 splashHeadline">Welcome to DonorPool</h1>
           <p className="lead" style={{ width: "600px", margin: "auto" }}>
             We believe that charitable giving should be easy, even for those
             without a lot to give. That's why we created DonorPool, a website
@@ -52,7 +51,11 @@ class SplashPageContainer extends React.Component {
             <div>
               <Button
                 outline
-                style={{ backgroundColor: "white", margin: "10px" }}
+                style={{
+                  color: "green",
+                  backgroundColor: "white",
+                  margin: "10px"
+                }}
                 onClick={this.handleClick}
                 className="Login"
                 value="Login"
@@ -61,7 +64,11 @@ class SplashPageContainer extends React.Component {
               </Button>
               <Button
                 outline
-                style={{ backgroundColor: "white", margin: "10px" }}
+                style={{
+                  color: "green",
+                  backgroundColor: "white",
+                  margin: "10px"
+                }}
                 onClick={this.handleClick}
                 className="Signup"
                 value="Signup"
@@ -71,7 +78,11 @@ class SplashPageContainer extends React.Component {
               <br />
               <Button
                 outline
-                style={{ backgroundColor: "white", margin: "10px" }}
+                style={{
+                  color: "green",
+                  backgroundColor: "white",
+                  margin: "10px"
+                }}
                 onClick={this.handleClick}
                 className="CharityManager"
                 value="CharityManager"
@@ -80,7 +91,16 @@ class SplashPageContainer extends React.Component {
               </Button>
             </div>
           ) : (
-            <Button onClick={this.handleClick}>Back</Button>
+            <Button
+              style={{
+                color: "green",
+                backgroundColor: "white",
+                margin: "10px"
+              }}
+              onClick={this.handleClick}
+            >
+              Back
+            </Button>
           )}
           {this.state.active === "Login" ? <Login /> : null}
           {this.state.active === "Signup" ? <Signup /> : null}
