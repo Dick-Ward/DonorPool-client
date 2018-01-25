@@ -65,7 +65,8 @@ class SplashPageContainer extends React.Component {
                 <Button
                   outline
                   style={{
-                    color: "green",
+                    borderColor: "RGB(130,100,200)",
+                    color: "RGB(150,100,200)",
                     backgroundColor: "white",
                     margin: "10px"
                   }}
@@ -78,7 +79,8 @@ class SplashPageContainer extends React.Component {
                 <Button
                   outline
                   style={{
-                    color: "green",
+                    borderColor: "RGB(130,100,200)",
+                    color: "RGB(130,100,200)",
                     backgroundColor: "white",
                     margin: "10px"
                   }}
@@ -92,7 +94,8 @@ class SplashPageContainer extends React.Component {
                 <Button
                   outline
                   style={{
-                    color: "green",
+                    borderColor: "RGB(130,100,200)",
+                    color: "RGB(130,100,200)",
                     backgroundColor: "white",
                     margin: "10px"
                   }}
@@ -106,7 +109,8 @@ class SplashPageContainer extends React.Component {
             ) : (
               <Button
                 style={{
-                  color: "green",
+                  borderColor: "RGB(130,100,200)",
+                  color: "RGB(130,100,200)",
                   backgroundColor: "white",
                   margin: "10px"
                 }}

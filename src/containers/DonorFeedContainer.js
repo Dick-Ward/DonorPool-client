@@ -30,7 +30,8 @@ class DonorFeedContainer extends React.Component {
           >
             <Button
               style={{
-                color: "green",
+                borderColor: "RGB(130,100,200)",
+                color: "RGB(130,100,200)",
                 backgroundColor: "white",
                 margin: "10px"
               }}

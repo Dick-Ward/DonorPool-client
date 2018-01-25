@@ -203,7 +203,8 @@ class CharityManagerSignup extends React.Component {
           </Row>
           <Button
             style={{
-              color: "green",
+              borderColor: "RGB(130,100,200)",
+              color: "RGB(150,100,200)",
               backgroundColor: "white",
               margin: "10px"
             }}

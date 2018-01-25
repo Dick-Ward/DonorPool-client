@@ -10,7 +10,7 @@ body {
 .byLine {
   margin: 5px;
   font-style: italic;
-  background-color: RGBa(30, 30, 30, 0.15);
+  background-color: RGBa(255, 220, 255, 0.3);
   border-radius: 20px;
 }
 

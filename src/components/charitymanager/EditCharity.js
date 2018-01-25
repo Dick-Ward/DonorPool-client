@@ -151,7 +151,16 @@ class EditCharity extends React.Component {
               </FormGroup>
             </Col>
           </Row>
-          <Button>Submit</Button>
+          <Button
+            style={{
+              borderColor: "RGB(130,100,200)",
+              color: "RGB(130,100,200)",
+              backgroundColor: "white",
+              margin: "10px"
+            }}
+          >
+            Submit
+          </Button>
         </Form>
       </Container>
     );
