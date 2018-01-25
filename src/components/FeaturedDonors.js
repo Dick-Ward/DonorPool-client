@@ -16,7 +16,12 @@ const FeaturedDonors = props => {
 
   const name = `${props.firstName} ${props.lastName}`;
   return (
-    <Card style={{ margin: "5px" }}>
+    <Card
+      style={{
+        margin: "5px",
+        boxShadow: "1px 1px 2px 1px"
+      }}
+    >
       <CardBody>
         <CardImg
           style={{ maxHeight: "150px", maxWidth: "150px" }}
