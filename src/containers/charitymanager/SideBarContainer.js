@@ -6,14 +6,18 @@ import * as actions from "../../actions";
 class SideBarContainer extends React.Component {
   render() {
     return (
-      <div style={{ padding: "10px", marginRight: "20px" }}>
+      <div
+        className="sideContainer"
+        style={{ padding: "10px", marginRight: "20px" }}
+      >
         <Container>
           Keep your information up-to date to make sure customers know that
           they're donating to a trusted source.
           <div style={{ margin: "10px" }}>
             <Button
               style={{
-                color: "green",
+                borderColor: "RGB(130,100,200)",
+                color: "RGB(130,100,200)",
                 backgroundColor: "white",
                 margin: "10px"
               }}
@@ -31,7 +35,8 @@ class SideBarContainer extends React.Component {
           <div style={{ margin: "10px" }}>
             <Button
               style={{
-                color: "green",
+                borderColor: "RGB(130,100,200)",
+                color: "RGB(130,100,200)",
                 backgroundColor: "white",
                 margin: "10px"
               }}

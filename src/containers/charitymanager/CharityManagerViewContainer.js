@@ -9,7 +9,7 @@ class CharityManagerViewContainer extends React.Component {
     return (
       <div>
         <Row>
-          <Col xs="12" md="3" style={{ backgroundColor: "RGBa(0,255,0,.2)" }}>
+          <Col xs="12" md="3">
             <div>
               <SideBarContainer />
             </div>
