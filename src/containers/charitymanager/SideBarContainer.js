@@ -6,7 +6,7 @@ import * as actions from "../../actions";
 class SideBarContainer extends React.Component {
   render() {
     return (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px", marginRight: "20px" }}>
         <Container>
           Keep your information up-to date to make sure customers know that
           they're donating to a trusted source.

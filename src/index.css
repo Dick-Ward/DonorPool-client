@@ -1,10 +1,10 @@
 body {
   background-image: url("city.jpeg");
-  background-size: cover;
 }
 
 .splashBackground {
   background-image: url("city.jpeg");
+  background-size: cover;
 }
 
 .byLine {
@@ -80,7 +80,7 @@ body {
   outline: solid;
   outline-width: thin;
   outline-color: RGBa(30, 30, 30, 0.3);
-  background-color: RGBa(25, 150, 20, 0.2);
+  background-color: RGBa(255, 255, 255, 0.5);
   padding-bottom: 1em;
 }
 

@@ -11,7 +11,7 @@ class DonorFeedContainer extends React.Component {
   render() {
     return (
       <div
-        style={{ position: "sticky", top: "20px" }}
+        style={{ position: "sticky", top: "20px", marginLeft: "15px" }}
         className="sideContainer"
       >
         <div className="categoryTitle">My Charities</div>
