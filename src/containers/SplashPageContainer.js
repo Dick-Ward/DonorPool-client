@@ -47,15 +47,31 @@ class SplashPageContainer extends React.Component {
               padding: "20px"
             }}
           >
-            <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
-              <h1 className="display-3 splashHeadline">Welcome to DonorPool</h1>
+            <div
+              style={{
+                margin: "auto",
+                width: "600px",
+                backgroundColor: "RGBa(130,100,200,.7)",
+                borderRadius: "10px"
+              }}
+            >
+              <h1
+                style={{ color: "white" }}
+                className="display-3 splashHeadline"
+              >
+                Welcome to DonorPool
+              </h1>
             </div>
             {this.state.active === null ? (
               <div>
                 <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
                   <p
                     className="lead"
-                    style={{ width: "550px", margin: "auto" }}
+                    style={{
+                      width: "550px",
+                      margin: "auto",
+                      color: "RGBa(110,70,150, 1)"
+                    }}
                   >
                     We believe that charitable giving should be easy, even for
                     those without a lot to give. That's why we created
