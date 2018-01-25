@@ -11,7 +11,14 @@ class SideBarContainer extends React.Component {
           Keep your information up-to date to make sure customers know that
           they're donating to a trusted source.
           <div style={{ margin: "10px" }}>
-            <Button onClick={this.props.editCharityView}>
+            <Button
+              style={{
+                color: "green",
+                backgroundColor: "white",
+                margin: "10px"
+              }}
+              onClick={this.props.editCharityView}
+            >
               Edit Charity Information
             </Button>
           </div>
@@ -22,7 +29,16 @@ class SideBarContainer extends React.Component {
             a boost in donations for an upcoming project.
           </div>
           <div style={{ margin: "10px" }}>
-            <Button onClick={this.props.addUpdate}>Add an Update</Button>
+            <Button
+              style={{
+                color: "green",
+                backgroundColor: "white",
+                margin: "10px"
+              }}
+              onClick={this.props.addUpdate}
+            >
+              Add an Update
+            </Button>
           </div>
         </Container>
       </div>

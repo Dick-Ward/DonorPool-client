@@ -53,6 +53,7 @@ class AddUpdate extends React.Component {
         {this.props.error ? (
           <Alert color="danger">{this.props.error}</Alert>
         ) : null}
+        <h3>Add Update</h3>
         <Row>
           <Col>
             <FormGroup>

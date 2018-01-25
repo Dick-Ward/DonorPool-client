@@ -22,7 +22,23 @@ class DonorFeedContainer extends React.Component {
         ) : null}
         <DonorFeed />
         {this.props.user.supported.length === 0 ? null : (
-          <Button onClick={this.handleClick}> Edit Donations </Button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <Button
+              style={{
+                color: "green",
+                backgroundColor: "white",
+                margin: "10px"
+              }}
+              onClick={this.handleClick}
+            >
+              Edit Donations
+            </Button>
+          </div>
         )}
       </div>
     );

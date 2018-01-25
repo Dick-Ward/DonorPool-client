@@ -60,7 +60,7 @@ class EditCharity extends React.Component {
   render() {
     return (
       <Container>
-        <h3>Sign Up</h3>
+        <h3>Edit Charity Information</h3>
         {this.props.error ? (
           <Alert color="danger">{this.props.error}</Alert>
         ) : null}
