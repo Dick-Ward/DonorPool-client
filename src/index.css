@@ -1,5 +1,10 @@
 body {
-  background-image: url("crossword.png");
+  background-image: url("city.jpeg");
+  background-size: cover;
+}
+
+.splashBackground {
+  background-image: url("city.jpeg");
 }
 
 .byLine {

@@ -3,15 +3,7 @@ import Login from "../components/Login";
 import Signup from "../components/Signup";
 import Footer from "../components/Footer";
 import CharityManagerSignup from "../components/CharityManagerSignup";
-import {
-  Button,
-  Jumbotron,
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from "reactstrap";
+import { Button, Jumbotron } from "reactstrap";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
@@ -29,23 +21,40 @@ class SplashPageContainer extends React.Component {
   };
   render() {
     return (
-      <div>
-        <Jumbotron
+      <div
+        style={{
+          position: "absolute",
+          margin: "auto",
+          top: "0",
+          bottom: "450px",
+          left: "0",
+          right: "0",
+          width: "700px",
+          height: "500px"
+        }}
+      >
+        <div
           style={{
-            backgroundColor: "RGBa(20,200,20,.2)",
+            backgroundColor: "RGBa(255,255,255,.2)",
             margin: "auto",
             width: "90%",
             textAlign: "center",
-            boxShadow: "1px 2px"
+            boxShadow: "1px 1px 2px 1px",
+            padding: "20px"
           }}
         >
-          <h1 className="display-3 splashHeadline">Welcome to DonorPool</h1>
-          <p className="lead" style={{ width: "600px", margin: "auto" }}>
-            We believe that charitable giving should be easy, even for those
-            without a lot to give. That's why we created DonorPool, a website
-            that allows you to give as little or as much as you want to the
-            causes you care about.
-          </p>
+          <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
+            <h1 className="display-3 splashHeadline">Welcome to DonorPool</h1>
+          </div>
+          <div style={{ backgroundColor: "RGBa(255,255,255,.2)" }}>
+            <p className="lead" style={{ width: "550px", margin: "auto" }}>
+              We believe that charitable giving should be easy, even for those
+              without a lot to give. That's why we created DonorPool, a website
+              that allows you to give as little or as much as you want to the
+              causes you care about.
+            </p>
+          </div>
+
           <hr className="my-2" />
           {this.state.active === null ? (
             <div>
@@ -107,7 +116,7 @@ class SplashPageContainer extends React.Component {
           {this.state.active === "CharityManager" ? (
             <CharityManagerSignup />
           ) : null}
-        </Jumbotron>
+        </div>
         <Footer />
       </div>
     );
