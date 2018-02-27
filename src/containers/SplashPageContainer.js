@@ -21,16 +21,16 @@ class SplashPageContainer extends React.Component {
   };
   render() {
     return (
-      <div
-        className="splashBackground"
-        style={{ minHeight: window.innerHeight }}
-      >
+      <div>
+        <div className="bg">
+          <img className="splashBackground" src="/city.jpeg" />
+        </div>
         <div
           style={{
             position: "absolute",
             margin: "auto",
             top: "0",
-            bottom: "300px",
+            bottom: "0",
             left: "0",
             right: "0",
             width: "900px",
